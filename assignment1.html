@@ -4,7 +4,7 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
-        <title>Example Student's HCDE 439 Physical Computing Page!</title> 
+        <title>Assignment 1</title> 
 
         <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -12,14 +12,133 @@
     <body> 
 
         <div class="header">
-            <h1>Example Student's Assignment 1!</h1>
+            <h1>Assignment 1: Modelling and Laser Cutting!</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
             <p>
-            <img src="red-panda.jpg" width=400></a>
+                <!-- Picture of final assembled piece -->
+                <img src="red-panda.jpg" width=400></a>
+                
+                <br>
+                <br>
+
+                For this assignment, we were tasked with laser cutting 30 press fit construction pieces that could be used together to form a structure that could withstand light shaking. Being completely new to Rhino (or any 3D computer software for that matter) and heeding Nadya’s advice to start simple, I decided to go with a straightforward model that would get me familiar with using Rhino but would leave ample time for the actual laser cutting and troubleshooting. 
+            
+                <br>
+                <br> 
+        
+                <!-- Picture of Rhino model -->
+                <img src="red-panda.jpg" width=400></a>
+            
+                <br>
+                <br>
+
+                I started by constructing my model in Adobe Illustrator – it was a tool I was more familiar with and therefore less intimidated by. I started with 2”x2” squares to make the math easy and designed my four insertion slots to be .5” deep and .125” wide (the exact thickness of my cardboard taken from the online listing’s product spec) and imported my design to Rhino. 
+                
+                <br>
+                <br>
+
+                After attending Junchao's office hours, I realized that part of this assignment was intended to familiarize ourselves with Rhino; a piece that I kind of bypassed by completing my design in AI. So, I recreated my model in Rhino, generated a couple instances of it for a test cut, and exported it to Adobe Illustrator to be used by the laser cutters at The Mill. 
+            
+                <br>
+                <br>
+
+                <!-- Test cut image -->
+                <img src="red-panda.jpg" width=400></a>
+            
+                <br>
+                <br>
+
+                When I got to The Mill and verified my cardboard’s width with a caliper, I realized that I had misinterpreted the product specifications I based my design on, and that the thickness was incorrect. I updated the width of my insertion slots to be 2.7mm (the actual exact thickness of my cardboard) and converted my designs to the metric system per Junchao's suggestion. 
             </p>
+
             <p>
-            Here is all the documentation for assignment 1!
+                Ready to cut, I asked the staff at The Mill to help me use the laser cutter. They showed me how to turn it on, focus it, configure my AI file for printing (i.e. adjusting the stroke weight), and how to send jobs to the printer and I chose the following settings for my first print: <b>speed 30, power 100, frequency 50</b>. 
+            
+                <br>
+                <br>
+
+                <i>It worked!</i> There were a couple tiny flames though, and so the staff and I were curious to see if we could better configure our settings. We tried three more test cuts with the following settings: 
+                    <ul>
+                        <li>Test 2: speed 80, power 20, frequency 50</li>
+                        <li>Test 3: speed 80, power 40, frequency 50</li>
+                        <li>Test 4: speed 30, power 80, frequency 50</li>
+                    </ul>
+
+                Test 2 didn't actually cut through the cardboard. Tests 3 and 4 did successfully cut through the cardboard. The fourth configuration seemed to provide the best cut with the least number of flames so I settled on that one. 
+            
+                <br>
+                <br>
+
+                After assembling my test cuts, I realized a couple things: 
+                    <ol>
+                        <li>While the pieces could withstand gentle shaking, that was attributed to the depth of the insertion slots and the length at which they overlapped rather than the tightness of the slots themselves.</li>
+                        <li>I had never intended for my pieces to connect in the middle when pieced together – I didn’t account for the overlap of each construction piece and therefore designed my insertion slots too deep. </li>
+                    </ol>
+                    So, I decided to record the laser cutting settings, go home and update my model, and come back later that weekend to finish my cut.  
+                <br>
+                <br>
+
+                This time I designed three different test cuts. Each new design had insertion slots that were half as deep as my first model, but each had varying widths of 2.4mm, 2.5mm, and 2.6mm. I put them all into one file so that I could run a test cut, determine which fit best, and immediately cut my final product. 
+            
+                <br>
+                <br>
+
+                <!-- Picture of Rhino model -->
+                <img src="red-panda.jpg" width=400></a>
+            
+                <br>
+                <br>
+
+                However, when I returned to The Mill and sent my job to the laser, the laser crashed. Miranda, Priyana, and I decided to go to The 8 to try out the other laser cutter. Together we were able to figure out how to get this other laser cutter operating, how to queue our jobs, and how to successfully cut our designs.  
+            
+                <br>
+                <br>
+
+                <!-- Picture of Rhino model -->
+                <img src="red-panda.jpg" width=400></a>
+            
+                <br>
+                <br>
+
+                I decided that the 2.5mm wide insertion slots offered the best fit and generated a 6x6 grid of that particular model which printed successfully! Since this laser cutter was a bit different than the one in The Mill, instead of choosing the speed, power, and frequency settings, we specified the material and its thickness, and the machine chose the settings based on that. In switching to the manual operating page, I was able to see that it used the following settings: power 27.2%, speed 12%, PPI 500. 
+            
+                <br>
+                <br>
+
+                Now I have 36 press fit construction pieces that my family was super interested in messing around with.  
+
+                <br>
+                <br>
+
+                <b>Source Files</b>
+                <br>
+                <a href="A1-files/A1_2.7_by_12.5.3dm">Model 1: 2.7mm by 12.5mm insertion slots</a>
+                <br>
+                <a href="A1-files/A1_2.6_by_6.25.3dm">Model 2: 2.6mm by 6.25mm insertion slots</a>
+                <br>
+                <a href="A1-files/A1_2.5_by_6.25.3dm">Model 3: 2.5mm by 6.25mm insertion slots</a>
+                <br>
+                <a href="A1-files/A1_2.4_by_6.25.3dm">Model 4: 2.4mm by 6.25mm insertion slots</a>
+                <br>
+                <a href="A1-files/TestCut.3dm">Test Cut: 2 by 6 grid containing models 2, 3, and 4</a>
+                <br>
+                <a href="A1-files/FinalCut.3dm">Final Cut: 6 by 6 grid of final design</a>
+
+                <br>
+                <br>
+
+                <b>Acknowledgements</b>
+                <br>
+                Junchao for his help during office hours.
+                <br>
+                The staff at the Mill for teaching me how to set up the laser cutter.
+                <br>
+                Miranda and Priyana for troubleshooting and moral support at the 8.
+                
+                <br><br>
+                <p><a href="index.html">Return to Home</a></p>
             </p>
         </div>
-        
+
     </body>
 </html>
