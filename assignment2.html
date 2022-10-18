@@ -4,7 +4,7 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
-        <title>Example Student's HCDE 439 Physical Computing Page!</title> 
+        <title>Assignment 2</title> 
 
         <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -12,12 +12,150 @@
     <body> 
 
         <div class="header">
-            <h1>Example Student's Assignment 2!</h1>
+            <h1>Assignment 2: Parametric Modeling with Grasshopper!</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
             <p>
-            <img src="red-panda.jpg" width=400></a>
-            </p>
-            <p>
-            Here is all the documentation for assignment 2!
+                <!-- Picture of final assembled piece -->
+                <img src="A2-files/Pictures/constructed-piece-top-view.png" width=400></a>
+
+                <br><br>
+
+                For this assignment, we were tasked with creating a parametric model using grasshopper that could be used to laser cut 30 press fit construction pieces. I went to the web for parametric inspiration and decided to recreate this design from Parametric House.
+
+                <br>
+                
+                <!-- Picture of inspiration-->
+                <img src="A2-files/Pictures/inspiration-picture.jpg" height=400></a>
+
+                <br>
+
+                <caption>
+                    <a href="https://parametrichouse.com/lamp1/"><i>Link to design that inspired my own from Parametric House</i></a>
+                </caption>
+
+                <br><br><br>
+
+                <!-- Picture of Paper Prototype-->
+                <img src="A2-files/Pictures/prototype.png" width=400></a>
+
+                <br><br>
+
+                In an effort to recreate the piece, I started with a paper prototype to ensure that my design would achieve the same rotating effect. At first look, I thought all of the slits were slightly shifted on each piece to achieve the rotating effect and didn't know how to even begin determining what equation I should use to determine that... but after taking a closer look at the pictures I noticed that the top and bottom slits were just shifted differently. So, I started by making a (not very precise) paper prototype to validate my understanding of how my inspiration was constructed. My prototype was a bit wobbly at first without a base to sit on, but I decided to move forward with modeling it anyway. 
+
+                <br><br>
+
+                <!-- Picture of Notes -->
+                <img src="A2-files/Pictures/notes.jpeg" width=400></a>
+
+                <br><br>
+
+                Before going straight to Grasshopper, I sat down with my prototype pieces to figure out how to represent different parts of my design in terms of equations and variables. I knew that if I wanted to support variable size rectangles, I would need to be able to represent the positioning of the slits as equations so that they would dynamically update as the inputs change. Next, I moved onto modeling my design in Grasshopper. 
+
+                <br><br>
+
+                <!-- Picture of Grasshopper File -->
+                <img src="A2-files/Pictures/grasshopper-design.png" width=100%></a>
+
+                <br><br>
+
+                My final grasshopper piece was a bit of a beast... but here’s a high-level summary of the approach I took. 
+                <ol>
+                    <li>Draw the outer rectangle, where the width and height could be varied</li>
+                    <li>Draw a single slit, where the width and height could be varied </li>
+                    <li>Position the single slit centered over the y-axis  </li>
+                    <li>Create a linear array of the slit, such that it contains two slits </li>
+                    <li>Make a copy of the linear array of slits for the top edge </li>
+                    <li>Move each linear array to its final position based on a variable that determines how far the first slit should be from the left edge </li>
+                    <li>Trim the rectangle with the slits and vice versa and join the resulting curves </li>
+                    <li>Create an array of the final curve (where the number of items in the x and y direction can be varied) to be baked and used for cutting </li>
+                    <li>Add all the comments so that when I look at this sometime in the future, I can remember what the heck is going on. </li>
+                </ol>
+
+                <br>
+
+                <!-- Picture of Linear Array portion -->
+                <img src="A2-files/Pictures/linear-array.png" width=100%></a>
+
+                <br><br>
+
+                You’ll notice a few differences between my approach and my pen and paper representation. The most noticeable difference is my use of the linear arrays for the slits. When I was representing the slits on paper, I was initially intending to draw four separate rectangles and position each of them individually based on the equations I laid out. But once I got into Grasshopper, I realized that instead of positioning each one individually, I could instead use a linear array and define the space between each slit with an equation to achieve the same result without having to explicitly draw and position as many rectangles.  
+
+                <br><br>
+
+                <!-- Picture of distance from left edge portion -->
+                <img src="A2-files/Pictures/distance-from-edge.png" width=100%></a>
+
+                <br><br>
+
+                Step 6 also saw a slight change from my initial plan. Originally, I had planned for the left-most slit to be positioned one unit (1 inch in my case) from the left edge. However, I later realized that this didn’t work well for pieces that were smaller than about 10 inches. So, I decided to make this a variable that the user could control, and input based on other inputs.  
+
+                <br><br>
+
+                <!-- Picture of inputs + array -->
+                <img src="A2-files/Pictures/user-inputs.png" width=49%></a>
+                <img src="A2-files/Pictures/rectangle-array.png" width=49%></a>
+
+                <br><br>
+
+                Steps 2 and 8 were the most helpful when it came to laser cutting. Being able to easily and precisely change the width of the slits, as well as the size of the array for printing based on what would fit on my cardboard really reduced my time spent at the Mill to actually perform the laser cutting. I wanted to make as much of my design variable as possible, so in addition to being able to dynamically set the width and height of the rectangle, and the width of the slits, I also allowed the slit height to be variable so that the user could adjust the spacing between each level of the structure. Additionally, the user can input the distance from the left edge and first slit, and the distances between the slits will update to keep the curve symmetrical.
+
+                <br><br>
+
+                <!-- Picture of trimming and joining region -->
+                <img src="A2-files/Pictures/join-regions.png" width=100%></a>
+
+                <br><br>
+
+                Lastly, Step 7 proved to be the most difficult for me since I didn’t realize that your shapes edges couldn’t perfectly intersect otherwise there wouldn’t be an inside/outside to trim. I couldn’t get the shapes to trim after many tries, so after moving them around for debugging purposes I finally got it working and realized that they couldn’t be perfectly aligned.  
+
+                <br><br>
+
+                <!-- Picture of centering the slit -->
+                <img src="A2-files/Pictures/center-slit.png" width=100%></a>
+
+                <br><br>
+
+                Overall, modeling in grasshopper was pretty straightforward to me; coming from a software engineering background really helped me understand how to break down the problem and understand how the inputs and outputs worked for each component in grasshopper similarly to functions or methods. My biggest gripe with grasshopper was how difficult it could be to go back and make simple edits, largely due to it being a graphical user interface. For example, on my pen and paper iteration of the model, I left out step 3, but during modeling noticed that my piece wasn’t completely symmetrical. I quickly realized that this was because I hadn’t centered the slit before duplicating it via an array and setting the distance between them.  But going back and adding that simple change was more complicated than it should have been. I couldn’t just update a typed-out equation to subtract the width divided by two but had to add a new move component which required a vector component which required a division component which required an integer component. While logically I understand why I had to do it this way, it was a frustrating experience.  
+
+                <br><br>
+
+                <!-- Picture of final cut file -->
+                <img src="A2-files/Pictures/final-array.png" width=400></a>
+
+                <br><br>
+
+                With my grasshopper model ready to go, I measured the size of cardboard to determine how many pieces I could fit in each direction. I set all my variables to the dimensions I wanted and baked a 3 by 2 array of my final curve for a test cut. I exported the file to Adobe Illustrator, updated the stroke weight, and sent my job to the printer with the following settings: <b>speed 30, power 80, frequency 50</b>. While this test cut was successful, just one piece didn’t fully detach when removing my pieces, so I decided to lower the speed for my final cut. I updated my model to print a 3 by 12 array of my curve this time, re-exported it to Adobe Illustrator, and sent my job to the printer with the following settings: <b>speed 25, power 100, frequency 50</b>. 
+
+                <br><br>
+
+                <!-- Picture of constructed pieces -->
+                <img src="A2-files/Pictures/constructed-piece-front-view.png" width=49%></a>
+
+                <br><br>
+
+                Success! My 36 pieces were cut, and I was able to construct them into their final structure. And after playing around with the pieces some more, I figured out how to layout the pieces such that it wasn’t lopsided and didn’t wobble due to an uneven base.  
+
+                <br>
+                <br>
+
+                <b>Source Files</b>
+                <br>
+                <a href="A2-files/A2.gh">Grasshopper file</a>
+                <br>
+                <a href="A2-files/FinalCut.3dm">Rhino file of final array used for laser cutting</a>
+                <br>
+                <a href="A2-files/TestCut.3dm">Rhino file of test cut array used for laser cutting</a>
+
+                <br>
+                <br>
+
+                <b>Acknowledgements</b>
+                <br>
+                Emily Rowland for meeting up with me at The Mill to laser cut and teaching me new details about the laser cutter that were super helpful for printing!
+                
+                <br><br>
+                <p><a href="index.html">Return to Home</a></p>
+
             </p>
         </div>
         
