@@ -67,3 +67,19 @@ a {
   text-decoration: none;
 }
 
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 2px solid black;
+}
+
+td {
+  border-bottom: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+}
