@@ -1,0 +1,284 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Assignment 3</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Assignment 3: Getting Started with 3D Printing!</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
+            <p>
+                <!-- Picture of all 3D printed pieces -->
+                <img src="red-panda.jpg" width=400></a>
+            </p>
+
+            <h2>Setting Up the Printer</h2>
+
+            <p>
+                This week, we began exploring 3D printing, so naturally we had to set up our own 3D printers. This was the most intimidating portion of the assignment. After talking to friends who have their own 3D printers, they all described the setup process as particularly challenging since everything is so interconnected and adjusting one piece influences all other pieces. Anticipating multiple issues and hours of troubleshooting I wanted to start early to give myself enough time for the actual printing. 
+
+                <br><br>
+                
+                To begin the setup, I opened my box and took out all the pieces. I then turned to the <a href="https://www.youtube.com/watch?v=ibsOYzXduYc">YouTube video</a> that was recommended to us to walk me through the process. I would play the video, watch the following instruction, pause the video, complete that piece on my end, and then return to the video. This was great, except for I had the tendency to always pause the video before he would explain the “gotcha” for that step in the process (i.e., “tighten the bed so it doesn't shake” immediately followed by “but not too tight”) which left me redoing some steps or left me stressing about what was too tight and what was just right. Note to my future self: <i>watch through the entire video at 2x speed <b>before</b> setting up so that you know what's coming.</i>
+
+                <br><br>
+
+                <!-- Picture of constructed printer -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Overall, the initial setup (getting all the pieces put together and being able to turn the printer on) went really well, and honestly I was so focused on the task at hand that I forgot to take any pictures of the process. I lucked out and didn't have to adjust the extruder's eccentric nuts such that it didn't wiggle and after attaching the last piece I rechecked all the screws to make sure that they were tightly in place. Everything was solid, there were no gaps between any pieces, and I wasn't falling into any of the "<a href="https://docs.google.com/presentation/d/1rn5A9kMzFbmf5fG3BCfmJ7ly0EuEtmvc7b1KVEft9cA/edit?usp=sharing">gothcas</a>" we discussed in class. 
+
+                <br><br>
+
+                Next came leveling the bed. This was hands down the most stressful part of the building process. For the life of me, I could not get all four corners of the plate close enough to the extruder; three corners would position fine, but there was always a stubborn fourth corner that would end up millimeters from the extruder. I referenced Discord to see what my classmates had done and found that a few needed to readjust the z-axis switch to be able to level the bed so I gave that a try. After referencing several videos and trying to readjust the z-axis switch position at least five times with no luck, I was ready to scream. I turned to Discord to ask my classmates, and while I waited for a response, tried one last time. SUCCESS, all four corners could be positioned close enough to the extruder. I can't tell you what changed between this attempt and the previous 20, but my tips for success and notes for my future self:
+                <ul>
+                    <li>The adjustment springs should provide enough play such that you don't have to move the z-axis switch (as explained in <a href="https://www.youtube.com/watch?v=lspkdhtShgc&t=508s">this video</a>) although your mileage may vary.</li>
+                    <li>Adjust all corners to their lowest position before starting - the position of one corner effects all the others and starting from this neutral position (rather than the recommended “loosen the screws by about two turns”) was the only way I could get the bed leveled. </li>
+                    <li>If anything takes too long, walk away, and come back. Sometimes you just need a break to be able to approach it with a clear head</li>
+                    <li>Stronger springs for the adjustments knob is an easy, quick, and cheap enhancement you can make to make your life easier</li>
+                </ul>
+
+                <br>
+
+                <!-- Picture of leveling the bed -->
+                <img src="red-panda.jpg" width=400></a>
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Using the paper method, I was able to level the bed and run my first test print to ensure that I leveled it correctly. I started the provided test print, waited for everything to heat up, and then watched the clips holding my tempered glass to the bed, get in the way of the print. Note to my future self: <i>switch to smaller binder clips positioned at the front/back of the bed rather than the sides.</i> With new clips in place, I ran the leveling print again and SUCCESS.
+            </p>
+
+            <h2>Printing Cubes</h2>
+
+            <p>
+                <!-- Pictures of cubes -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Next came printing some calibration cubes. I went into Rhino, quickly created a 20x20mm cube, and exported the file as a stl with 0.1mm tolerance. I imported the file into Cura, and quickly figured out how to set all the slicing settings. I sliced each of my prints with the following settings and had the following results:
+
+                <table>
+                    <tr>
+                        <th>Print Number</th>
+                        <th>Print Quality</th>
+                        <th>% Infill</th>
+                        <th>Additional Slice Settings</th>
+                        <th>Time to Print</th>
+                        <th>Printed Dimensions</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Low Quality</td>
+                        <td>20%</td>
+                        <td>Default</td>
+                        <td>20 minutes</td>
+                        <td>20.05mm L x 19.97mm W x 19.70mm H</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Standard Quality</td>
+                        <td>20%</td>
+                        <td>Default</td>
+                        <td>26 minutes</td>
+                        <td>19.97mm L x 19.91mm W x 19.80mm H</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Super Quality</td>
+                        <td>20%</td>
+                        <td>Default</td>
+                        <td>50 minutes</td>
+                        <td>19.86mm L x 19.31mm W x 19.87mm H</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Standard Quality</td>
+                        <td>10%</td>
+                        <td>Top/Bottom Pattern: Concentric</td>
+                        <td>26 minutes</td>
+                        <td>19.92mm L x 19.38mm W x 19.85mm H</td>
+                    </tr>
+                </table>
+
+                <br><br>
+
+                I didn't have any issues printing my cubes; there were no adhesion issues, no spaghetti monsters, and all the cubes were within 1mm tolerance. I guess I kind of lucked out on needing to better calibrate my printer. 
+
+                <br><br>
+
+                I was genuinely surprised at how good the “low quality” prints looked with our given printers... To be honest, since I knew that these were entry level printers, I expected the results to be a lot worse. It was really cool to see the quality progressively get better with each of the prints in this section. 
+
+            </p>
+
+            <h2>Printing Tubes</h2>
+
+            <p>
+                <!-- Pictures of tubes -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Next came printing some single wall and double wall tube. To do this, I created two rhino models with varying thicknesses:
+                <ul>
+                    <li> 30mm in diameter tube that was .4mm thick</li>
+                    <li> 30mm in diameter tube that was .8mm thick</li>
+                </ul>
+                Because the nozzle extrudes at .4mm, I figured that to get a single wall and double wall print, the thickness of the cube had to be 1x and 2x the extrusion thickness respectively. I exported each file as a stl with .1mm tolerance and proceeded to print with the following slice settings and results: 
+
+                <br><br>
+                <table>
+                    <tr>
+                        <th>Print Number</th>
+                        <th>Print Quality</th>
+                        <th>% Infill</th>
+                        <th>Additional Slice Settings</th>
+                        <th>Time to Print</th>
+                        <th>Printed Dimensions</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Low Quality</td>
+                        <td>0%</td>
+                        <td>Wall Line Count: 1</td>
+                        <td>17 minutes</td>
+                        <td>29.37mm W x 29.56mm H</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Low Quality</td>
+                        <td>0%</td>
+                        <td>Wall Line Count: 2 <br> Z-Seam Alignment: Random
+                        </td>
+                        <td>21 minutes</td>
+                        <td>29.68mm W x 29.65mm H</td>
+                        <td>Printing with random z-seam alignment left my print with some noticeable "zits"</td>
+                    </tr>
+                </table>
+
+                <br><br>
+
+                Again, I got lucky with no adhesion issues, no spaghetti monsters, and again all dimensions were within 1mm tolerance. The tubes were much harder to measure since they would bend as the calipers tightened on either side, so I had to try to grab the measurement at the caliper's loosest, such that the item was still being held between it and was just short of falling through. 
+            </p>
+
+            <h2>Printing Cylinders</h2>
+
+            <p>
+                <!-- Pictures of cylinders -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Next, came printing the cylinders. Again, I went straight to rhino to quickly create 30mm in diameter and 30mm high cylinder. I exported the file as a stl, this time with varying tolerances and waited for each to finish so that I could queue up for the next. Note to future self: <i>you can queue up multiple prints (that are all sliced differently) into one job.</i>
+
+                <br><br>
+
+                When I started this portion of the assignment, I noticed that an entire section of the skirt and half of the first layer of the bottom of the cylinder wasn't being printed onto the bed. It wasn't that it failed to adhere, the extruded plastic just wasn't there… I restarted the print and hit the same issue so I assumed it must have to do with the leveling of the bed. I releveled the bed, re-ran the leveling print, and tried again. This time the entire skirt and first layer were printed correctly, and I proceeded to print the rest of them with the following settings and results:
+
+                <table>
+                    <tr>
+                        <th>Print Number</th>
+                        <th>Export Tolerance</th>
+                        <th>Print Quality</th>
+                        <th>% Infill</th>
+                        <th>Additional Slice Settings</th>
+                        <th>Time to Print</th>
+                        <th>Printed Dimensions</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0.1mm</td>
+                        <td>Low Quality</td>
+                        <td>10%</td>
+                        <td>Wall Line Count: 2</td>
+                        <td>32 minutes</td>
+                        <td>29.68mm W x 29.95mm H</td>
+                        <td>Exporting w/ .1mm tolerance, you can see the flat surfaces along the outside of the cylinder</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0.001mm</td>
+                        <td>Low Quality</td>
+                        <td>10%</td>
+                        <td>Wall Line Count: 2</td>
+                        <td>32 minutes</td>
+                        <td>29.83mm W x 29.93mm H</td>
+                        <td>Exporting w/ .001mm tolerance, resulted in a much smoother curve with no added printing time!</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0.001mm</td>
+                        <td>Low Quality</td>
+                        <td>0%</td>
+                        <td>Wall Line Count: 1 <br> Spiralize Outer Contour: On</td>
+                        <td>22 minutes</td>
+                        <td>29.81mm W x 30.09mm H</td>
+                        <td>The 'Spiralize Outer Counter' setting is also known as the vase setting since it only prints the bottom and out walls</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0.001mm</td>
+                        <td>Low Quality</td>
+                        <td>10%</td>
+                        <td>Wall Line Count: 2 <br> Generate Support: On w/ default settings</td>
+                        <td>47 minutes</td>
+                        <td>29.92mm W x 29.87</td>
+                        <td>When printing with supports, post-processing is required to remove all of the extra pieces</td>
+                    </tr>
+                </table>
+
+            </p>
+
+            <h2>Printing Nested Objects</h2>
+
+            <p>
+                <!-- Pictures of nested objects -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                Lasty, we had to print nested parts with at least three nesting structures. I decided to print nested dodecahedrons since they're a cool 3D shape, where each piece could be completely contained within the others (such that they can't be separated) and don't sit directly on top of each other (since I didn't know how to actually do this yet and didn't want to spend the time researching it. 
+
+                <br><br>
+                
+                Before committing to the design, I did some research to see how hard it would be to create the dodecahedron in Rhino. I quickly found a <a href="https://grasshopperdocs.com/components/weaverbird/polylinesDodecahedron.html">Polylines Dodecahedron component</a> that was made available by the <a href="https://grasshopperdocs.com/addons/weaverbird.html">Weavebird plugin</a> for Grasshopper. I installed the package and quickly drew a dodecahedron but I couldn't easily figure out how to make it 3D. So, I found this awesome <a href="https://www.youtube.com/watch?v=eYjFq4_miw0&t=687s">YouTube tutorial</a> that walked through and explained the process step by step. I created 3 dodecahedrons objects that the user could vary each of the radii individually. I created three dodecahedron components, rather than scaling one twice, because I wanted the width of the lines to be the same for each piece. 
+
+                <br><br>
+
+                With the objects ready to go in Grasshopper, I baked each of them, tried to align them all to the same plane manually (the command was not giving me the results I wanted), and exported them as a stl for Cura and started my print. Like every other print, I waited until the first layer printed before walking away to make sure that there weren't any adhesion issues. But unlike all my other prints, the outer dodecahedron would not adhere to the bed. I started and cancelled three different prints all with the same results. I releveled the bed, and tried again, but still had the same results. I releveled about 3 more times, all with the same result. Just when I was about to consider a different build plate adhesion type, as I was watching the print, I noticed that the last dodecahedron was trying to print its first layer at z = 1, instead of Z = 0. <b>*FACE PALM*</b>. I realigned all my dodecahedrons in Rhino again, this time using the command and re-exported them. I printed them with the default settings at Low Quality and waited 2 hours for them to finish. 
+                
+                <br><br>
+
+                I was extremely pleased with the result! While this printed fine with the chosen radius, I would probably use supports if I were to print this again to ensure that the top cross bars were more precisely printed. Without support, the outer layer was just long enough that one or two extrusion lines were slightly out of place. As soon as I saw that, I knew that I had forgotten how to consider how the top bars would print and realized that I need to watch out for this more carefully in the future.
+            </p>
+
+            <h2>Source Files</h2>
+            <h2>Acknowledgements</h2>
+
+            <p>
+                Miranda Elliot and Andy Moon for having similar leveling issues as me, which meant the answers I needed were already in Discord when I needed them.
+                <br>
+                Jessica Hord for explaining her approach to printing the single wall and double wall tubes and for answering so many questions on Discord.
+                <br>
+                Junchao for answering all the questions in both Discord and office hours.
+            </p>
+            <p>
+                <a href="index.html">Return to Home</a>
+            </p>
+        </div>
+        
+    </body>
+</html>
