@@ -99,7 +99,6 @@
                 <br><br>
                 
                 This was very similar to my previous model, but this time I had two separate linear arrays so that I could use one for notches and one for slits. For own sanity, and which I easily realized <i>could</i> cause me more work in the future if I decided to change the guts of this section, I decided to copy and paste everything (including the inputs this time) for each surface (i.e. front/back surface and the side surfaces). While this did result in duplication that didn't exisit in my prior model, it did make it easier for me to parse each section and re-wire my model without having to start from scratch. I was also confident in the basic structure of my model at this point as well since I had already verified I got the resulting curves I wanted and the first test print went fine. I will note however, that by copy and pasting the inputs for each section, I definitely introduce the opportunity for user error; it is now up to the user to make sure they input the correct inputs <i>three</i> times, rather than just once.
-
             </p>
 
             <h2>Test Prints Continued</h2>
@@ -110,8 +109,31 @@
                 With my Grasshopper file ready to go, I decided to print two more test prints. One, where the slits were .1mm wider than the notches, and another where the slits were .2mm wider than the notches. I sliced them both with the same settings as before and waited for them to print. Both pieces worked and to be honest, one didn't seem to fit particularly better than the other, so I decided on the .1mm difference. I went into Grasshopper and set the inputs for each surface. I baked each one, extruded them in Rhino, and then mnade a copy of both the side surface and front surface to get the other faces of my box. I imported the stl to Cura, and this time printed with super quality, which took about 6 hours for all 5 pieces. 
 
                 <br><br>
-                <!-- Printed pieces on printer bed -->
+
+                The test print went great, except for the fact that I realized I hadn't considered that I needed to consider the thickness of the surfaces (equal to the extent of the slits/notches). My box constructed, but the bottom surface was too small in one direction, leaving large gaps.
+
+                <br><br>
+                <!-- Constructed box round 1 -->
                 <img src="red-panda.jpg" width=400></a>
+            </p>
+
+            <h2>Updating My Model... Again</h2>
+            <p>
+                <!-- Picture of third gh model -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                I switched back to Grasshopper to make the following adjustments:
+                <ol>
+                    <li>The bottom surface needs to be wider than it's length to account for the thickness of each surface. W = (2 * slitDepth) + length</li>
+                    <li>Recenter the bottom and top slits given the new width, while keeping maintaining their distance from each other (update the formula to keep the slits equidistant)</li>
+                    <li>Create a new array of slits for the left/right sides that used the previous distance formula based on length</li>
+                </ol>
+
+                <br><br>
+                
+                This was very similar to my V2 model. While I tried again this time to make the changes inline, Grasshopper doesn't make that easy.. so I just replaced the entire bottom surface section. I used the previous version as a reference and just updated my components to take on the new widths where necessary and use the new linear array for the top/bottom slits. Altogether, this update took me less than one hour, and I was back to printing the bottom plate in no time.
             </p>
 
             <h2>Constructing and Testing</h2>
