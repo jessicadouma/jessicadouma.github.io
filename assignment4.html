@@ -22,34 +22,121 @@
                 This week we had the option between CNC milling a box or 3D printing a box. Due to time constraints and previous commitments this week, as well as wanting to better understand the tolerance of my 3D printer and better understand painpoints of printing pieces that are designed to be put together, I decided to 3D print my box. 
             </p>
 
-            <h2>Creating the Model</h2>
+            <h2>Creating my Initial Model</h2>
             <p>
+                <!-- Picture of Grasshopper Model -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                To create my model, I relied heavily on Grasshopper, since I knew that I would likely need to make lots of small adjustments to get my box to construct just right. I created a Grasshopper definition that took in the box width/height, slit width, notch width, slit/width extent, and number of slits/notches as variables since I knew that these were the things that I would want to be able to change and quickly update. From there, I followed the following steps to create my model:
+                <ol>
+                    <li>Draw the outer bounding rectange</li>
+                    <li>Draw the rectangle that would represent each slit</li>
+                    <li>Create a linear array of the slits</li>
+                    <li>Move and set the distance between the slits such that they are centered within the box and equidistant from each other</li>
+                    <li>Create a copy of the array and move it to align with the top of the bounding rectangle</li>
+                    <li>Create a copy of the array, rotate the array, and move it to align with the left edge of the bounding rectangle</li>
+                    <li>Create a copy of the rotated array, and move it to align with the right edge of the bounding rectangle</li>
+                    <li>Trim and join the resulting curves to create the bottom surface of the box</li>
+                </ol>
+
+                <br><br> 
                 
+                I then took this model, copy and pasted the guts of it (everything but the variables and the trimming/joining) and made the following slight modifications for the front and back of the box:
+                <ol>
+                    <li>Move the bottom slits down so that they become notches</li>
+                    <li>Move the left/right slits out so that they become notches</li>
+                    <li>Ignore the top slits since we want a flat edge for the box (but leave the logic there in case you change your mind)</li>
+                    <li>Retrim and join the curves to create the front/back surfaces of the box</li>
+                </ol>
+
+                <br><br> 
+                
+                I then took this model, copy and pasted the guts of it again (everything but the variables and the trimming/joining) and made the following slight modifications for the sides of the box:
+                <ol>
+                    <li>Move the bottom slits down so that they become notches</li>
+                    <li>Move the left/right slits back in so that they become slits again</li>
+                    <li>Keep ignoring the top slits since we want a flat edge for the box (but leave the logic there in case you change your mind)</li>
+                    <li>Retrim and join the curves to create the side surfaces of the box</li>
+                </ol>
+
+                <br><br> 
+
+                My model was working great, I could easily bake each piece into Rhino, where I would then extrude the curves there (I know I can extrude the curves in Grasshopper as well, but I prefer to do it here). I baked two pieces to create a test print so that I could make sure that the pieces all aligned well with no gaps.
             </p>
 
-            <h2>Test Prints</h2>
+            <h2>Test Print 1</h2>
             <p>
-                
+                <!-- Picture of first test prints -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                With a baked model ready to go, I exported my objects from Rhino to stl format and imported them to Cura. Since I was just trying to get a quick baseline for how my model was working, I sliced the two surfaces with the "low quality" profile, set the infill to 5% and waited about an hour my print to finish. My prints came out really well, but with the slits and notches sized at exactly the same width, I couldn't get the pieces to snap together. I quickly realized that I needed to update my model so that the slits could be one width and the notches could be another slightly smaller width. 
             </p>
 
-            <h2>Final Print</h2>
+            <h2>Updating My Model</h2>
             <p>
+                <!-- Picture of second gh model -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                I switched back to Grasshopper, with a clear understanding of the updates I needed to make, and thought to myself "this will be easy - I just need to create one more slider so that I can differentiate between slit width and notch width and just update the inputs". <i>Easier said than done...</i> Not because the task was non-trivial, but because my Grasshopper file was <i>dense</i> and it was hard to find every spot that I needed to update. After about five minutes of trying to find all the inputs I needed to update, I gave up and decided to create a v2 of the Grasshopper model following these steps:
+                <ol>
+                    <li>Draw the outer bounding rectange</li>
+                    <li>Draw the rectangle that would represent each slit</li>
+                    <li>Draw the rectangle that would represent each notch</li>
+                    <li>Create a linear array of the slits and a second linear array of the notches</li>
+                    <li>Move and set the distance between the slits such that they are centered within the box and equidistant from each other</li>
+                    <li>Create a copy of the array and move it to align with the top of the bounding rectangle</li>
+                    <li>Create a copy of the array, rotate the array, and move it to align with the left edge of the bounding rectangle</li>
+                    <li>Create a copy of the rotated array, and move it to align with the right edge of the bounding rectangle</li>
+                    <li>Trim and join the resulting curves to create the bottom surface of the box</li>
+                </ol>
+
+                <br><br>
                 
+                This was very similar to my previous model, but this time I had two separate linear arrays so that I could use one for notches and one for slits. For own sanity, and which I easily realized <i>could</i> cause me more work in the future if I decided to change the guts of this section, I decided to copy and paste everything (including the inputs this time) for each surface (i.e. front/back surface and the side surfaces). While this did result in duplication that didn't exisit in my prior model, it did make it easier for me to parse each section and re-wire my model without having to start from scratch. I was also confident in the basic structure of my model at this point as well since I had already verified I got the resulting curves I wanted and the first test print went fine. I will note however, that by copy and pasting the inputs for each section, I definitely introduce the opportunity for user error; it is now up to the user to make sure they input the correct inputs <i>three</i> times, rather than just once.
+
             </p>
 
-            <h2>Modifications & Enhancements</h2>
+            <h2>Test Prints Continued</h2>
             <p>
-                
+                <!-- Cura -->
+                <img src="red-panda.jpg" width=400></a>
+
+                With my Grasshopper file ready to go, I decided to print two more test prints. One, where the slits were .1mm wider than the notches, and another where the slits were .2mm wider than the notches. I sliced them both with the same settings as before and waited for them to print. Both pieces worked and to be honest, one didn't seem to fit particularly better than the other, so I decided on the .1mm difference. I went into Grasshopper and set the inputs for each surface. I baked each one, extruded them in Rhino, and then mnade a copy of both the side surface and front surface to get the other faces of my box. I imported the stl to Cura, and this time printed with super quality, which took about 6 hours for all 5 pieces. 
+
+                <br><br>
+                <!-- Printed pieces on printer bed -->
+                <img src="red-panda.jpg" width=400></a>
+            </p>
+
+            <h2>Constructing and Testing</h2>
+            <p>
+                <!-- Printed box with sugar in it -->
+                <img src="red-panda.jpg" width=400></a>
+
+                <br><br>
+
+                With my five pieces printed, I snapped them together and was super happy! There was the slightest gap between the slits and notches but it looked like it would pass the sugar test... so I took my box to the kitchen and poured some in. Success! The sugar stayed in and didn't come trickling out the bottom!
             </p>
 
             <h2>Source Files</h2>
             <p>
-                
+                <a href="A4-files/generate-model.gh">Grasshopper Model - V1</a>
+                <br>
+                <a href="A4-files/generate-model-v2.gh">Grasshopper Model - V2</a>
+                <br>
+                <a href="A4-files/FinalModel.3dm">Rhino Model for Final Print</a>
+                <br>
             </p>
 
             <h2>Acknowledgements</h2>
             <p>
-                
+                Emily Rowland for emotional support and validation. 
             </p>
             <p>
                 <a href="index.html">Return to Home</a>
