@@ -25,7 +25,7 @@
             <h2>Creating my Initial Model</h2>
             <p>
                 <!-- Picture of Grasshopper Model -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/v1-gh-model.png" width=60%></a>
 
                 <br><br>
 
@@ -69,17 +69,26 @@
             <h2>Test Print 1</h2>
             <p>
                 <!-- Picture of first test prints -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/test-cut-pieces.png" width=400></a>
+                <img src="A4-files/Pictures/test-cut-gap.png" width=400></a>
 
                 <br><br>
 
-                With a baked model ready to go, I exported my objects from Rhino to stl format and imported them to Cura. Since I was just trying to get a quick baseline for how my model was working, I sliced the two surfaces with the "low quality" profile, set the infill to 5% and waited about an hour my print to finish. My prints came out really well, but with the slits and notches sized at exactly the same width, I couldn't get the pieces to snap together. I quickly realized that I needed to update my model so that the slits could be one width and the notches could be another slightly smaller width. 
+                With a baked model ready to go, I exported my objects from Rhino to stl format and imported them to Cura. Since I was just trying to get a quick baseline for how my model was working, I sliced the two surfaces with the "low quality" profile, set the infill to 5% and waited about an hour my print to finish. My prints came out really well, but with the slits and notches sized at exactly the same width, the fit wasn't as tight as I had wanted it... I figured that the fit was too tight, and that with a slightly looser fit the seams would get closer together so I updated my model so that the slits could be one width and the notches could be another slightly smaller width. 
+                
+                <br><br>
+
+                <img src="A4-files/Pictures/test-cut-no-gap.png" width=400></a>
+
+                <br><br>
+
+                <i>In hindsight, this wasn't actually necessary... with enough pressure the pieces fit just as nicely as my other designs (this picture shows a much smaller gap than the picture above from when I first tried ~weakly~ to put the test pieces together). Unfortunately this meant that I spent extra hours updating my models when I didn't need to and printing. But on the bright side, at least I'm super comfortable with Grasshopper now :) </i>
             </p>
 
             <h2>Updating My Model</h2>
             <p>
                 <!-- Picture of second gh model -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/v2-gh-model.png" width=60%></a>
 
                 <br><br>
 
@@ -105,6 +114,7 @@
             <p>
                 <!-- Cura -->
                 <img src="red-panda.jpg" width=400></a>
+                <br><br>
 
                 With my Grasshopper file ready to go, I decided to print two more test prints. One, where the slits were .1mm wider than the notches, and another where the slits were .2mm wider than the notches. I sliced them both with the same settings as before and waited for them to print. Both pieces worked and to be honest, one didn't seem to fit particularly better than the other, so I decided on the .1mm difference. I went into Grasshopper and set the inputs for each surface. I baked each one, extruded them in Rhino, and then mnade a copy of both the side surface and front surface to get the other faces of my box. I imported the stl to Cura, and this time printed with super quality, which took about 6 hours for all 5 pieces. 
 
@@ -114,13 +124,14 @@
 
                 <br><br>
                 <!-- Constructed box round 1 -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/box-attempt-1-top.png" width=400></a>
+                <img src="A4-files/Pictures/box-attempt-1-bottom.png" width=400></a>
             </p>
 
             <h2>Updating My Model... Again</h2>
             <p>
                 <!-- Picture of third gh model -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/v3-gh-model.png" width=60%></a>
 
                 <br><br>
 
@@ -139,11 +150,12 @@
             <h2>Constructing and Testing</h2>
             <p>
                 <!-- Printed box with sugar in it -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A4-files/Pictures/final-box-top.png" width=400></a>
+                <img src="A4-files/Pictures/final-box-bottom.png" width=400></a>
 
                 <br><br>
 
-                With my five pieces printed, I snapped them together and was super happy! There was the slightest gap between the slits and notches but it looked like it would pass the sugar test... so I took my box to the kitchen and poured some in. Success! The sugar stayed in and didn't come trickling out the bottom!
+                With my five pieces printed, I snapped them together and was super happy! There was the slightest gap between the slits and notches but it looked like it would pass the sugar test... so I took my box to the kitchen and poured some in. Success! The sugar stayed in and didn't come trickling out the bottom! And just for funsies, I reprinted the box again using my new colored PLA that just arrived :)
             </p>
 
             <h2>Source Files</h2>
@@ -151,6 +163,8 @@
                 <a href="A4-files/generate-model.gh">Grasshopper Model - V1</a>
                 <br>
                 <a href="A4-files/generate-model-v2.gh">Grasshopper Model - V2</a>
+                <br>
+                <a href="A4-files/generate-model-v3.gh">Grasshopper Model - V3</a>
                 <br>
                 <a href="A4-files/FinalModel.3dm">Rhino Model for Final Print</a>
                 <br>
