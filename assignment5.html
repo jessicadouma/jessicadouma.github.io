@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Assignment 5</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Assignment 5: Getting Meshy! and Lamps!</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
+            <p>
+                <!-- -->
+                <img src="red-panda.jpg" width=400></a>
+            </p>
+
+            <h2>Let's Get Meshy</h2>
+            <p>
+                These week we had to explore modifying meshes to produce a single printable STL that pass all the checks for rapid prototyping. I explored <a href="https://www.thingiverse.com">Thingiverse</a> for about 30 minutes looking through different objects hoping to spark an idea of what I wanted to create. I ended up finding some cute pokemon and decided to start there. I went through the following steps to create my modified mesh:
+                
+                <table>
+                    <tr>
+                        <td>
+                            <img src="A5-files/Pictures/import-bulbasaur.png" width=400></a> 
+                            <br> 
+                            1. Imported the <a href="https://www.thingiverse.com/thing:327753">bulbasaur STL</a> from Thingiverse into Rhino and verifiied that it was a closed mesh.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/position-box.png" width=400></a>
+                            <br>
+                            2. Drew a large box and positioned it above bulbasaur using the Gumball tool, such that it intersected the top of him.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/mesh-split.png" width=400></a>
+                            <br>
+                            3. Ran the <i>MeshSplit</i> command on the objects to remove the top part of bulbasaur, using the box as the cutting object.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="A5-files/Pictures/cap.png" width=400></a>
+                            <br>
+                            4. Step 3 left me with an open mesh, so ran the <i>Cap</i> command on my updated bulbasaur to close it.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/import-cactus.png" width=400></a>
+                            <br>
+                            5. Imported one of the <a href="https://www.thingiverse.com/thing:2398762">cactus STL's</a> from Thingiverse into Rhino and verified that it is a closed mesh. When importing, I chose the split disjoint mesh option so that I could easily remove the pot.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/quad-remesh.png" width=400></a>
+                            <br>
+                            6. The cactus was very detailed, so I ran the <i>QuadRemesh</i> command on it, with a target polygon count of 2000, and reduced it from ~114,000 polygons to ~11,000.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="A5-files/Pictures/scale.png" width=400></a>
+                            <br>
+                            7. The cactus was a lot larger than the bulbasaur at this point, so I scaled it down using the <i>Scale</i> command to scale it down by a factor of 0.8.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/position-cactus.png" width=400></a>
+                            <br>
+                            8. Next, I rotated, positioned, and angled the cactus over bulbasaur using the Gumball tool such that it was coming out the top of his shell.
+                        </td>
+                        <td>
+                            <img src="A5-files/Pictures/final-mesh-rendered.png" width=400></a>
+                            <br>
+                            9. Lastly, I ran the <i>MeshBooleanUnion</i> command on the two meshes to combine them and re-verified that the mesh was still closed. I then rendered the object to look at my creation and exported it as an STL.
+                        </td>
+                    </tr>
+                </table>
+            </p>
+
+            <h2>Getting Started with Our Lamps</h2>
+            <p>
+                
+            </p>
+
+            <h2>Source Files</h2>
+            <h3>Let's Get Meshy Source Files</h3>
+            <p>
+                <a href="A5-files/bulbasaur_original.STL">Bulbasaur mesh from Thingiverse</a>
+                <br>
+                <a href="A5-files/cactus_original.stl">Cactus mesh from Thingiverse</a>
+                <br>
+                <a href="A5-files/combining-meshes.3dm">Rhino file w/ combined meshes</a>
+                <br>
+                <a href="A5-files/combined-mesh.stl">Combined meshes exported as STL</a>
+                <br>
+            </p>
+
+            <h3>Lamp Source Files</h3>
+            <p>
+
+            </p>
+
+            <h2>Acknowledgements</h2>
+            <p>
+                Emily Rowland for going through the mesh assignment with me.
+            </p>
+
+            <p>
+                <br><br>
+                <a href="index.html">Return to Home</a>
+            </p>
+        </div>
+        
+    </body>
+</html>

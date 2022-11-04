@@ -78,6 +78,7 @@ th {
 
 td {
   border-bottom: 1px solid black;
+  vertical-align: baseline;
 }
 
 th, td {
