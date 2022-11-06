@@ -19,7 +19,7 @@
                 <img src="red-panda.jpg" width=400></a>
             </p>
 
-            <h2>Let's Get Meshy</h2>
+            <h2>Part 1: Let's Get Meshy</h2>
             <p>
                 These week we had to explore modifying meshes to produce a single printable STL that pass all the checks for rapid prototyping. I explored <a href="https://www.thingiverse.com">Thingiverse</a> for about 30 minutes looking through different objects hoping to spark an idea of what I wanted to create. I ended up finding some cute pokemon and decided to start there. I went through the following steps to create my modified mesh:
                 
@@ -78,32 +78,49 @@
                 </table>
             </p>
 
-            <h2>Getting Started with Our Lamps</h2>
+            <h2>Part 2: Getting Started with Our Lamps</h2>
             <p>
-                
+                I have a lot of ideas for my lamp, so for this week I wanted to explore them all and understand how feasible they'd be. I came across a couple pine cone lamp shades and decided to investigate to see how easy/difficult something similar, but more flowery looking would be. I started looking about ways I might model leaf or petal like shapes, knowing that I wanted to design my lamp parametrically, and found this <a href="https://www.youtube.com/watch?v=_3_7sDce6ME">YouTube tutorial</a>. I thought this was a great place to get started cause the shapes were nothing like I wanted, but the the tutorial would help me understand how to get there, thereby ensuring that I understood the content. I watched the tutorial and went through the steps, trying to see if this would give me me the outcome I wanted so that I could design the base of the lamp. 
+
+                <br><br>
+                <img src="A5-files/Pictures/grasshopper-make-leaves.png" width=90%></a>
+                <br><br>
+
+                Using the YouTube video as a guide to get started, I was able to create a leaf like shape that I could easily manipulate and change using bezier curves and different multipliers to increase the size and angles of each leaf. I then extruded the surface to create a 3D shape and entered the geometry into a polar array where I could vary the number of leaves in the ring. Happy with the results and verifying that my proof of concept worked, I turned my focus to the base of the lamp, since that was the remaining piece. 
+
+                <br><br>
+                <img src="A5-files/Pictures/single-leaf.png" width=30%></a>
+                <img src="A5-files/Pictures/extruded-leaf.png" width=30%></a>
+                <img src="A5-files/Pictures/polar-array.png" width=30%></a>
+                <br><br>
             </p>
 
             <h2>Source Files</h2>
             <h3>Let's Get Meshy Source Files</h3>
             <p>
-                <a href="A5-files/bulbasaur_original.STL">Bulbasaur mesh from Thingiverse</a>
+                <a href="A5-files/Mesh Files/bulbasaur_original.STL">Bulbasaur mesh from Thingiverse</a>
                 <br>
-                <a href="A5-files/cactus_original.stl">Cactus mesh from Thingiverse</a>
+                <a href="A5-files/Mesh Files/cactus_original.stl">Cactus mesh from Thingiverse</a>
                 <br>
-                <a href="A5-files/combining-meshes.3dm">Rhino file w/ combined meshes</a>
+                <a href="A5-files/Mesh Files/combining-meshes.3dm">Rhino file w/ combined meshes</a>
                 <br>
-                <a href="A5-files/combined-mesh.stl">Combined meshes exported as STL</a>
+                <a href="A5-files/Mesh Files/combined-mesh.stl">Combined meshes exported as STL</a>
                 <br>
             </p>
 
             <h3>Lamp Source Files</h3>
             <p>
-
+                <a href="A5-files//Lamp Files/generate-leaves-single-layer.gh">Grasshopper file to generate one ring of leaves</a>
+                <br>
+                <a href="A5-files//Lamp Files/generate-leaves.gh">Grasshopper file to generate multiple rings of leaves to visualize the final lamp shade piece</a>
+                <br>
             </p>
 
             <h2>Acknowledgements</h2>
             <p>
                 Emily Rowland for going through the mesh assignment with me.
+                <br>
+                Junchao for his help during office hours.
             </p>
 
             <p>
