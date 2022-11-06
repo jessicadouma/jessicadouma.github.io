@@ -16,7 +16,7 @@
             <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
             <p>
                 <!-- -->
-                <img src="red-panda.jpg" width=400></a>
+                <img src="A5-files/Pictures/printed-bulbasaur.png" width=400></a>
             </p>
 
             <h2>Part 1: Let's Get Meshy</h2>
@@ -86,13 +86,23 @@
                 <img src="A5-files/Pictures/grasshopper-make-leaves.png" width=90%></a>
                 <br><br>
 
-                Using the YouTube video as a guide to get started, I was able to create a leaf like shape that I could easily manipulate and change using bezier curves and different multipliers to increase the size and angles of each leaf. I then extruded the surface to create a 3D shape and entered the geometry into a polar array where I could vary the number of leaves in the ring. Happy with the results and verifying that my proof of concept worked, I turned my focus to the base of the lamp, since that was the remaining piece. 
+                Using the YouTube video as a guide to get started, I was able to create a leaf like shape that I could easily manipulate and change using bezier curves and different multipliers to increase the size and angles of each leaf. I then extruded the surface to create a 3D shape and entered the geometry into a polar array where I could vary the number of leaves in the ring. While I waited for some prints to finish up, I kept messing around with my grasshopper definition. I copy and pasted the script multiple times so that I could visualize what the final lamp would look like and was really pleased with the level of custimizability and how much room I had to play. The only bummer was that if I wanted to print the lamp shade as a single piece, Cura estimated the print as needing 2 days and 8 hours to complete :'). Printing each row individually though wasn't a huge deal; instead of having one tube that all of the leaves connected to, I would just have each row connect to its own tube, which could then be stacked to build each layer of the lamp. Happy with the results and confident in my proof of concept, I turned my focus to the base of the lamp, since that was the remaining piece. 
 
                 <br><br>
-                <img src="A5-files/Pictures/single-leaf.png" width=30%></a>
-                <img src="A5-files/Pictures/extruded-leaf.png" width=30%></a>
-                <img src="A5-files/Pictures/polar-array.png" width=30%></a>
+                <img src="A5-files/Pictures/single-leaf.png" width=20%></a>
+                <img src="A5-files/Pictures/extruded-leaf.png" width=20%></a>
+                <img src="A5-files/Pictures/polar-array.png" width=20%></a>
+                <img src="A5-files/Pictures/multiple-leaves.png" width=20%></a>
                 <br><br>
+
+                To start planning the base, I decided that my lamp would be a table lamp rather than a hanging lamp, which meant that my base has to allow the lamp innerds to sit inside of it and support it upright, while also allowing the cord to easily bend and exit out the bottom so that it could sit flat on the table. I decided to start by designing the inner support first. I measured the lamp innerds and found that the top was 37.2mm wide and 40mm tall before it started to taper. I drew a tube that was 38.5mm wide and 40mm tall intended for the base of the lamp to slide through with some wiggle room. I then drew two truncated cones, one slightly larger than the other, and used the smaller one to cut the larger one, forming a conular shape that the cord could go through, and that would support the bottom of the lamp to keep it from falling through. I then joined the two resulting objects, exported the object as an STL, and ran a test print using Cura. 
+
+                <br><br>
+                <img src="A5-files/Pictures/lamp-base-front.png" width=30%></a>
+                <img src="A5-files/Pictures/lamp-base-top.png" width=30%></a>
+                <br><br>
+
+                
             </p>
 
             <h2>Source Files</h2>
@@ -113,6 +123,8 @@
                 <a href="A5-files//Lamp Files/generate-leaves-single-layer.gh">Grasshopper file to generate one ring of leaves</a>
                 <br>
                 <a href="A5-files//Lamp Files/generate-leaves.gh">Grasshopper file to generate multiple rings of leaves to visualize the final lamp shade piece</a>
+                <br>
+                <a href="A5-files//Lamp Files/lamp-support.3dm">Rhino file containing the lamp support piece</a>
                 <br>
             </p>
 
