@@ -95,14 +95,25 @@
                 <img src="A5-files/Pictures/multiple-leaves.png" width=20%></a>
                 <br><br>
 
-                To start planning the base, I decided that my lamp would be a table lamp rather than a hanging lamp, which meant that my base has to allow the lamp innerds to sit inside of it and support it upright, while also allowing the cord to easily bend and exit out the bottom so that it could sit flat on the table. I decided to start by designing the inner support first. I measured the lamp innerds and found that the top was 37.2mm wide and 40mm tall before it started to taper. I drew a tube that was 38.5mm wide and 40mm tall intended for the base of the lamp to slide through with some wiggle room. I then drew two truncated cones, one slightly larger than the other, and used the smaller one to cut the larger one, forming a conular shape that the cord could go through, and that would support the bottom of the lamp to keep it from falling through. I then joined the two resulting objects, exported the object as an STL, and ran a test print using Cura. 
+                To start planning the base, I decided that my lamp would be a table lamp rather than a hanging lamp, which meant that my base has to allow the lamp innerds to sit inside of it and support it upright, while also allowing the cord to easily bend and exit out the bottom so that it could sit flat on the table. I decided to start by designing the inner support first. I measured the lamp innerds and found that the top was 37.2mm wide and 40mm tall before it started to taper. I drew a tube that was 38.5mm wide and 40mm tall intended for the base of the lamp to slide through with some wiggle room. I then drew two truncated cones, one slightly larger than the other, and used the smaller one to cut the larger one, forming a conular shape that the cord could go through, and that would support the bottom of the lamp to keep it from falling through. I then joined the two resulting objects, exported the object as an STL, and ran a test print using Cura. Surprisingly, I got this right on the very first try which was awesome! I wanted to play around with different tapers of the bottom cone shape, but figured I'd leave that to the end, time-permitting.
 
                 <br><br>
                 <img src="A5-files/Pictures/lamp-base-front.png" width=30%></a>
                 <img src="A5-files/Pictures/lamp-base-top.png" width=30%></a>
+                <img src="A5-files/Pictures/lamp-base-printed.png" width=30%></a>
                 <br><br>
 
-                
+                With my inner lamp supporing piece ready, I couldn't move on to finishing the rest of the base until I knew how big the disks holding the leaves together were going to be. I ran a test print, with a tube large enough to clear my lightbulb and wide enough to hold the leaves together. I stopped the print when I realized that the part of the leaf that connected to the tube was only one line thick... this wasn't offering any support and when I removed the supports I was able to super easily snap off each leaf. I realized that this was because of how my leaf was being extruded. While the top edge of the leaf was 3mm thick, the bottom of the leaf was converging to a single curve, as shown in the picture below.
+
+                <br><br>
+                <img src="A5-files/Pictures/layer-1-test-fail.png" width=30%></a>
+                <img src="A5-files/Pictures/leaf-side-profile.png" width=30%></a>
+                <br><br>
+
+                After much trial and error in both Grasshopper, I couldn't get the surface to extrude the way I wanted to... one edge was always super thin no matter what I tried. Eventually, I turned to Rhino to try and figure out a solution. I baked the non-extruded surface from my Grasshopper script and started manipulating it in Rhino. I tried <i>so</i> many commands to try and get a closed solid polysurface (multiple variations of lofting, merging edges, merging surfaces, capping open polysurfaces...) and nothing worked. Finally, after about an hour of no progress, I tried the <i>DevLoft</i> command to loft each edge of the surface and this gave me a closed polysurface <i>*as I cried with tears of joy*</i>.
+
+                <br><br>
+                It was awesome that I found a solution, but I wasn't quite sure how to convert that to Grasshopper.. so I figured that I would use Grasshopper to create my surfaces and to visualize the final product, and would manually loft each surface (one for each layer of the lamp) in Rhino myself, and then generate a polar array for it in Rhino. While this was a few more manual steps than I was hoping for, it seemed to work and my test print looked great!
             </p>
 
             <h2>Source Files</h2>
