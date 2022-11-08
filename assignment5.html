@@ -103,17 +103,23 @@
                 <img src="A5-files/Pictures/lamp-base-printed.png" width=30%></a>
                 <br><br>
 
-                With my inner lamp supporing piece ready, I couldn't move on to finishing the rest of the base until I knew how big the disks holding the leaves together were going to be. I ran a test print, with a tube large enough to clear my lightbulb and wide enough to hold the leaves together. I stopped the print when I realized that the part of the leaf that connected to the tube was only one line thick... this wasn't offering any support and when I removed the supports I was able to super easily snap off each leaf. I realized that this was because of how my leaf was being extruded. While the top edge of the leaf was 3mm thick, the bottom of the leaf was converging to a single curve, as shown in the picture below.
+                With my inner lamp supporing piece ready, I couldn't move on to finishing the rest of the base until I knew how big the disks holding the leaves together were going to be. I ran a test print, with a tube large enough to clear my lightbulb and wide enough to hold the leaves together. I stopped the print when I realized that the part of the leaf that connected to the tube was only one line thick... this wasn't offering any support and when I removed the supports I was able to super easily snap off each leaf (first picture below). I realized that this was because of how my leaf was being extruded. While the top edge of the leaf was 3mm thick, the bottom of the leaf was converging to a single curve, as shown in the second picture below. While I could artificially fix this by make my disk wider so that the thinnest part of the leaf was encapsulated by it, I didn't love that the piece could still potentially snap with bad handling (picture 3 below).
 
                 <br><br>
                 <img src="A5-files/Pictures/layer-1-test-fail.png" width=30%></a>
                 <img src="A5-files/Pictures/leaf-side-profile.png" width=30%></a>
+                <img src="red-panda.jpg" width=30%></a>
                 <br><br>
 
                 After much trial and error in both Grasshopper, I couldn't get the surface to extrude the way I wanted to... one edge was always super thin no matter what I tried. Eventually, I turned to Rhino to try and figure out a solution. I baked the non-extruded surface from my Grasshopper script and started manipulating it in Rhino. I tried <i>so</i> many commands to try and get a closed solid polysurface (multiple variations of lofting, merging edges, merging surfaces, capping open polysurfaces...) and nothing worked. Finally, after about an hour of no progress, I tried the <i>DevLoft</i> command to loft each edge of the surface and this gave me a closed polysurface <i>*as I cried with tears of joy*</i>.
 
                 <br><br>
-                It was awesome that I found a solution, but I wasn't quite sure how to convert that to Grasshopper.. so I figured that I would use Grasshopper to create my surfaces and to visualize the final product, and would manually loft each surface (one for each layer of the lamp) in Rhino myself, and then generate a polar array for it in Rhino. While this was a few more manual steps than I was hoping for, it seemed to work and my test print looked great!
+
+                It was awesome that I found a solution, but I wasn't quite sure how to convert that to Grasshopper.. so I figured that I would use Grasshopper to create my surfaces and to visualize the final product, and would manually loft each surface (one for each layer of the lamp) in Rhino myself, and then generate a polar array for it in Rhino. While this was a few more manual steps than I was hoping for, it seemed to work and my test print with the new leaf design looked great! I kicked off a print consisting of the entire layer, with all 8 leaves, but that's going to take 12 hours to print so stay tuned 😉
+
+                <br><br>
+                <img src="red-panda.jpg" width=400></a>
+                <br><br>
             </p>
 
             <h2>Source Files</h2>
@@ -136,6 +142,8 @@
                 <a href="A5-files//Lamp Files/generate-leaves.gh">Grasshopper file to generate multiple rings of leaves to visualize the final lamp shade piece</a>
                 <br>
                 <a href="A5-files//Lamp Files/lamp-support.3dm">Rhino file containing the lamp support piece</a>
+                <br>
+                <a href="A5-files//Lamp Files/manually-lofted-leaves.3dm">Rhino file containing the leaves I manually lofted</a>
                 <br>
             </p>
 
