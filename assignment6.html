@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Assignment 6</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Assignment 6: Lamps Part 2! and Molding and Casting Part 2!</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
+            <p>
+                <!-- -->
+                <img src="red-panda.jpg" width=400></a>
+            </p>
+
+            <h2>Lamps - Part 2</h2>
+            <p>
+                I made a lot of progress last week that made finishing up my lamp this week really straight forward. All I had left to do was print each layer of the leaves and finish designing (and then print) the base of the lamp</li>
+
+                <br><br>
+
+                <!-- Picture of Grasshopper Model before extrusion change -->
+                <img src="red-panda.jpg" width=30%></a>
+                <!-- Picture of individual layer of leaves -->
+                <img src="red-panda.jpg" width=30%></a>
+                <!-- Picture of all layer of leaves -->
+                <img src="red-panda.jpg" width=30%></a>
+
+                <br><br>
+
+                Using my Grasshopper model from last week I followed the following steps in Rhino to complete each layer of leaves:
+                <ol>
+                    <li>Bake each of my four different leaves into different layers in Rhino. Moving each of the different leaves into separate layers made it <i>a lot</i> easier to edit each one and visualize them all together by turning the visibility of each layer on and/or off.</li>
+                    <li>Copy and paste each leaf, moving the duplicate up 2 in the Z direction and over -2 in the Y direction.</li>
+                    <li>Combine the original and duplicate leaf via the <i>DevLoft</i> command to create a solid.</li>
+                    <li>Create a polar array of each leaf to include five leaves.</li>
+                    <li>Create a tube that is 5mm tall, that connects all the leaves in one layer and has a hole in the middle so that it can be slid over the light bulb.</li>
+                    <li><i>BooleanUnion</i> the five leaves to create onfe solid that could be exported to an STL to be printed.</li>
+                </ol>
+
+                <br>
+                <!-- Picture of each layer of leaves -->
+                <img src="red-panda.jpg" width=23%></a>
+                <img src="red-panda.jpg" width=23%></a>
+                <img src="red-panda.jpg" width=23%></a>
+                <img src="red-panda.jpg" width=23%></a>
+                <br><br>
+
+                I decided to print each layer of leaves individually (rather than unioning them into one final object) due to printing time. Each individual layer took between 10 and 14 hours to print. If I printed the entire lamp shade as one object, the print would have taken 2 days and 8 hours. I opted against this, because if I got 90% through the print and had an issue at the very end, I would have to restart the entire thing (and may not have enough time at that point). So I decided to print each individually, such that they could be stacked, so that if I had issues with one layer, the other layers wouldn't be set back. While I didn't end up having an issues (I finally fixed my thermal runaway issues <i>yay!</i>). I do still think that this was the right decision given the printer I have. 
+
+                <br><br>
+                <!-- Picture of lamp base -->
+                <img src="red-panda.jpg" width=30%></a>
+                <img src="red-panda.jpg" width=30%></a>
+                <img src="red-panda.jpg" width=30%></a>
+                <br><br>
+
+                Next, came finishing the desing of my base. Last week I already created the part of the base that the cord could be strung through and the lightbulb could sit in. Now I just had to design the rest of the base that would contain that piece. Since I had decided on a table lamp, I wanted a cylinder that the leaves would sit on top of, that could sit flat on the table (and therefore needed a slot for the cord to come out of). I went through the following steps in Rhino to create the base:
+
+                <ol>
+                    <li>Create a cylinder with a 95mm diameter.</li>
+                    <li>Create a second cylinder with a 91mm diameter. This cylinder was 1mm wider than the tube holding together the base of the leaves.</li>
+                    <li>Use the smaller cylinder to create a lip in larger cylinder with the <i>BooleanSplit</i> command. The lip was added so that the bottom layer of the leaves would sit inside the cylinder so that it wouldn't be able to slide off.</li>
+                    <li>Use the smaller cylinder again to remove most of the inside of the larger cylinder. I did this so that my final solid would take less time to print.</li>
+                    <li>Next, I used the piece I already designed, intended to hold the lightbulb, to cut a hole in the top of the base (via <i>BooleanSplit</i>) and then combined the piece to the rest of teh cylinder via <i>BooleanUnion</i></li>
+                    <li>Lastly, I drew a small cylinder, wide enough to fit the cord, and used it to cut a hole out of the bottom of the base.</li>
+                </ol>
+
+                <br>
+                <!-- Picture of lamp on/off -->
+                <img src="red-panda.jpg" width=45%></a>
+                <img src="red-panda.jpg" width=45%></a>
+                <br><br>
+
+                I printed each piece of my lamp consecutively for three days and didn't have any issue with any piece. I was really happy with the final result and one of my friends even claimed the lamp for her work desk. While I was super happy with the results two things I would do differently for next time are:
+                <ol>
+                    <li>Print the leaves with 100% infill since I used a translucent PLA. I didn't mind the infill pattern that shined through the leaves but I would have preffered them without. My friend actually preferred the infill pattern since it added texture to the final piece. So while I think this is largely up to preference, I think the final piece would look better without the cross sections.</li>
+                    <li>I would add a mechanism so that each layer of the leaves snapped or could be held into place when stacked. Currently each layer can be turned, and the layer's alignment can be changed. If I add half a sphere to the top of each tube, and subtracted half a sphere from the bottom of each tube the leaves were connected to, then the leaves wouldn't be able to rotate and their alignment wouldn't be able to shift.</li>
+                </ol>
+            </p>
+
+            <h2>Molding and Casting - Part 1</h2>
+            <p>
+
+            </p>
+
+            <h2>Source Files</h2>
+            <h3>Lamp Source Files</h3>
+            <p>
+
+            </p>
+
+            <h3>Molding and Casting Source Files</h3>
+            <p>
+
+            </p>
+
+            <h2>Acknowledgements</h2>
+            <p>
+
+            </p>
+
+            <p>
+                <br><br>
+                <a href="index.html">Return to Home</a>
+            </p>
+        </div>
+        
+    </body>
+</html>
