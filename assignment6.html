@@ -87,18 +87,45 @@
 
             <h2>Molding and Casting - Part 1</h2>
             <p>
+                For this part of the assignment, we had to 3D print our mold for a mold - <i>meta</i>. I started by designing the piece I wanted to cast next week. I decided I wanted to do a symmetrical polyhedron since it was more fun than a sphere but still a relatively simple shape. Because it was symmetrical, I also only had to create one mold as opposed to two. I went through the following steps to create my mold:
 
+                <ol>
+                    <li>I downloaded the <a href="https://www.food4rhino.com/en/app/rhinopolyhedra">RhinoPolyhedra Grasshopper package</a> to easily create a polyhedron.</li>
+                    <li>In Grasshopper, I used the RhinoPolyhedra Polyhedron component to create the shape. The component showed that I need to choose a 'Name'. Adding the Polyhedron Name component, showed me I needed to specify a 'Polyhedron Category'.</li>
+                    <li>Both the category and name components provided a list. I used the <i>List Item</i> component and a number slider to be able to select an option. While the number slider easily let me scroll through the different shape options, I wanted to know what the actual options were, so I also connected the lists to a panel component so that I could read all the outputs.</li>
+                    <li>I scrolled through the different options I chose a shape that was symmetrical and had a flat edge for the sprue to connect to. I specified the scale of the shape and baked it.</li>
+                    <li>Next I added four spheres around the polyhedron that would be used as the keys for the mold. I decided on a 10mm diameter for each one since I really wanted the molds to lock together well, and since the spheres would be cut in half, this meant that only 5mm of it would be used in the actual mold.</li>
+                    <li>Next, I added a box around the objects such that it was at least 5mm wider in every direction of a shape being molded. I wanted to make sure the walls of my mold were thick enough so that the silicone mold wouldn't be too flexible when I went to cast my final object.</li>
+                    <li>Drew a truncated cone that would serve as the pouring hole and positioned it such that it was flush withe polyhedron and extended to the edge of the box.</li>
+                    <li>Using the command <i>BooleanUnion</i>, I combined two of the spheres and the pouring to the box.</li>
+                    <li>Using the command <i>BooleanSplit</i>, I removed two of the spheres from the box to make the key holes.</li>
+                    <li>Next, I tried to union the polyhedron with the resulting box but was having a lot of issues since the polyhedron was a mesh and wasn't unioning correctly. So I used the <i>MeshToNURB</i> command on the polyhedron to convert it to a solid and unioned that with the box.</li>
+                    <li>To create the outer wall for the mold, I created two boxes; one that was .1mm wider and longer than the mold base I just created, and another that was 2mm wider and longer than the mold base. Both boxes were also 15mm taller than the highest point of the mold base to ensure the bottom of the silicone mold would be thick enough. I used the <i>BooleanSplit</i> command to remove the smaller box from the larger box.</li>
+                    <li>I then printed the pieces to ensure that the base of the mold slid into the mold wall without any gaps and success! I printed one more 3D mold so that I could pour and cure both halves of the mold at the same time.</li>
+                </ol>
+
+                <br>
+
+                After printing the 3D mold, I was worried that the pouring hole was too small... So I designed a second version of the mold with a slightly larger pour hole and printed two more molds so that they would be ready to go for next week. 
             </p>
 
             <h2>Source Files</h2>
             <h3>Lamp Source Files</h3>
             <p>
-
+                <a href="A6-files/Lamp Files/generate-leaves.gh">Grasshopper file for generating leaves</a>
+                <br>
+                <a href="A6-files/Lamp Files/final-model.3dm">Rhino model of leaves</a>
+                <br>
+                <a href="A6-files/Lamp Files/lamp-base.3dm">Rhino model of lamp base</a>
+                <br>
             </p>
 
             <h3>Molding and Casting Source Files</h3>
             <p>
-
+                <a href="A6-files/Mold Files/Polyhedron-Generator.gh">Grasshopper file for generating polyhedrons</a>
+                <br>
+                <a href="A6-files/Mold Files/Mold-V1.3dm">Rhino model of mold</a>
+                <br>
             </p>
 
             <h2>Acknowledgements</h2>
