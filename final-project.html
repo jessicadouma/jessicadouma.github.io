@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Final Project</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Final Project</h1>
+            <h2>Jessica Douma | HCDE 533 | Autumn 2022</h2>
+
+            <br><br>
+
+            <h1>Digitally Fabricated Moss Poles and Accessories</h1>
+            <p>
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Progress</th>
+                    </tr>
+                    <tr>
+                        <td>11/22</td>
+                        <td>
+                            Parametrically designed the anchor base of the moss pole w/o the mounting options. Waiting until I've designed and tested the screw mechanism before incorporating the mounting holes.
+                            <br><br>
+                            Tried using <a href="https://parametrichouse.com/twisted-mesh/">this tutorial</a> to create a screw mechanism. Played around with the different inputs and created an STL for a quick test print. This option desperately failed since the bottom/top of the "screw" was square and didn't allow for the screw to naturally screw into the cap I created.
+                            <br><br>
+                            Next, I tried some of the Grasshopper scripts from <a href="https://www.grasshopper3d.com/forum/topics/iso-screw-thread?x=1&id=2985220%3ATopic%3A430123&page=1#comments">this forum</a>. I chose some random inputs and baked both the male and female screws. The female screw was an open polysurface and I couldn't figure out how to manipulate it into a cap like shape. So instead I used the male shape to BooleanSplit it from a cylinder to create a cap and ran another test print. This was slightly more succesful than my first test print, but the cap didn't have any tolerance for the screw, which meant it only went in about a half turn before stopping.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11/23</td>
+                        <td>Followed this <a href="https://www.youtube.com/watch?v=MmiPFImNU4U">YouTube Tutorial</a> to parametrically design my own threads along a cylinder. It was incredibly straightforward and easy to follow. I adjusted the inputs to be similar to the size I expect one of the screw connections to be and kicked off a test print.</td>
+                    </tr>
+                    <tr>
+                        <td>11/24</td>
+                        <td>Followed this <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> to parametrically design my own caps for the threads I created the previous day. This video walked through created the cap with a tolerance (the part that my previous test prints missed) so I was hopeful this would work. I followed the tutorial and ran a test print referencing the same inputs as the previous day to see how the two pieces would work together.</td>
+                    </tr>
+                </table>
+            </p>
+
+
+            </p>
+
+            <h2>Acknowledgements</h2>
+            <p>
+
+            </p>
+
+            <p>
+                <br><br>
+                <a href="index.html">Return to Home</a>
+            </p>
+        </div>
+        
+    </body>
+</html>
