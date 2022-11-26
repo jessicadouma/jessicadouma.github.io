@@ -32,6 +32,8 @@
                             Tried using <a href="https://parametrichouse.com/twisted-mesh/">this tutorial</a> to create a screw mechanism. Played around with the different inputs and created an STL for a quick test print. This option desperately failed since the bottom/top of the "screw" was square and didn't allow for the screw to naturally screw into the cap I created.
                             <br><br>
                             Next, I tried some of the Grasshopper scripts from <a href="https://www.grasshopper3d.com/forum/topics/iso-screw-thread?x=1&id=2985220%3ATopic%3A430123&page=1#comments">this forum</a>. I chose some random inputs and baked both the male and female screws. The female screw was an open polysurface and I couldn't figure out how to manipulate it into a cap like shape. So instead I used the male shape to BooleanSplit it from a cylinder to create a cap and ran another test print. This was slightly more succesful than my first test print, but the cap didn't have any tolerance for the screw, which meant it only went in about a half turn before stopping.
+                            <br><br>
+                            To simplify my parametric modelling for each separate component, I decided to model each major piece in their own file first, and then I'll merge them together as needed. This made it easier to organize and incrementalley build on my work.
                         </td>
                     </tr>
                     <tr>
@@ -41,6 +43,10 @@
                     <tr>
                         <td>11/24</td>
                         <td>Followed this <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> to parametrically design my own caps for the threads I created the previous day. This video walked through created the cap with a tolerance (the part that my previous test prints missed) so I was hopeful this would work. I followed the tutorial and ran a test print referencing the same inputs as the previous day to see how the two pieces would work together.</td>
+                    </tr>
+                    <tr>
+                        <td>11/25</td>
+                        <td>With both the screw and the threaded nut printed, I tested them out together and - THEY WORKED. Now that I knew I the screw mechanism was taken care of, I turned to the next most complex (at least for me since I haven't done this before) part which is designing out the shell for the actual moss pole piece. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a>. The tutorial and resulting geometry relied on the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a>, so I had to jump through some hoops to get it installed since they only offer an installer for Windows on their site. I followed the first part of the tutorial to build the pole mesh and then added a couple of my own details and kicked off a test print.</td>
                     </tr>
                 </table>
             </p>
