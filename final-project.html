@@ -57,6 +57,15 @@
                         When I came back to my test print, it looked great and I think the cross-section radius was looking better than the previous iteration, however this time around I printed with "everywhere" support rather than "tree" support (since it was difficult to remove the tree support from the last print) and it was impossible to remove. I kicked off another test print, this time with no support to see how it would fair. While that was running I started working on the anchor adapter geometry.
                         </td>
                     </tr>
+                    <tr>
+                        <td>11/27</td>
+                        <td>My moss pole test print was finally successful. The trick was printing with no support and ensuring that there's enough U divisions so the base of the moss pole has something to connect to when printing at the top. 
+                        <br><br>
+                        Today I began integrating all of my parts. I pretty much designed each individual component but now I have to integrate the screw and thread mechanism across all of my designs. I started with the anchor base and kicked off a test print. For the diameter of my test print, I chose the bottom diameter of the pot that I plan to demo my moss pole with. 
+                        <br><br>
+                        Next, I moved onto the anchor extender since that would be using the same screw dimensions as the base, since the anchor adapter would be screwing into it. Originally I had planned to have all of my components in a single file. However, after adding the screw mechanism to the anchor file, I realized that the computations were starting to slow down my computer. So I decided to keep each component separate. This means that I'll have to be super careful to make sure all the integrating pieces use the same inputs across files. 
+                        </td>
+                    </tr>
                 </table>
             </p>
 
@@ -67,11 +76,12 @@
             <p>
                 Grasshopper Files
                 <ul>
-                    <li><a href="Final-Project/Grasshopper Scripts/AnchorBase.gh">Anchor Script</a></li>
-                    <li><a href="Final-Project/Grasshopper Scripts//ThreadsAndCap.gh">Screw Mechanism Script</a></li>
+                    <li><a href="Final-Project/Grasshopper Scripts/AnchorBaseWithThreads.gh">Anchor Script</a></li>
+                    <li><a href="Final-Project/Grasshopper Scripts/AnchorExtenderWithThreads.gh">Extender Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/MossPoleOuterWall.gh">Moss Pole Section Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/AnchorAdapter.gh">Anchor Adapter Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/PlantClips.gh">Moss Pole Section Script</a></li>
+                    <li><a href="Final-Project/Grasshopper Scripts//ThreadsAndCap.gh">Screw Mechanism Script</a></li>
                 </ul>
             </p>
 
