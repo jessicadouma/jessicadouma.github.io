@@ -50,6 +50,13 @@
                         <br><br>
                         While I waited for the test print to finish, I made my grasshopper script for the plant clips. This proved a bit trickier than I thought since a lot of my curves perfectly intersected which made trimming with regions a no-go. I tried making them overlap slightly but this effected the geometry. I decided to create one script that would allow me to parametrically create the geometry that I needed in Grasshopper that I could bake and remove the extraneous inner edges in Rhino. I then created a second script that takes the resulting curve I tidied up in Rhino and creates an array of the curve for laser cutting.</td>
                     </tr>
+                    <tr>
+                        <td>11/26</td>
+                        <td>I checked on my print in the morning and it looked really good! However, the settings I chose, the moss pole mesh cross sections were too thin, when I tried to remove the support they kept breaking. I updated the inputs in my parametric model to kick off another test print with thicker cross sections. And this is why I love parametric design - it's incredibly easy to iterate without duplicating effort.
+                        <br><br>
+                        When I came back to my test print, it looked great and I think the cross-section radius was looking better than the previous iteration, however this time around I printed with "everywhere" support rather than "tree" support (since it was difficult to remove the tree support from the last print) and it was impossible to remove. I kicked off another test print, this time with no support to see how it would fair. While that was running I started working on the anchor adapter geometry.
+                        </td>
+                    </tr>
                 </table>
             </p>
 
@@ -63,6 +70,7 @@
                     <li><a href="Final-Project/Grasshopper Scripts/AnchorBase.gh">Anchor Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts//ThreadsAndCap.gh">Screw Mechanism Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/MossPoleOuterWall.gh">Moss Pole Section Script</a></li>
+                    <li><a href="Final-Project/Grasshopper Scripts/AnchorAdapter.gh">Anchor Adapter Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/PlantClips.gh">Moss Pole Section Script</a></li>
                 </ul>
             </p>
