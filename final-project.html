@@ -38,34 +38,101 @@
                     </tr>
                     <tr>
                         <td>11/23</td>
-                        <td>Followed this <a href="https://www.youtube.com/watch?v=MmiPFImNU4U">YouTube Tutorial</a> to parametrically design my own threads along a cylinder. It was incredibly straightforward and easy to follow. I adjusted the inputs to be similar to the size I expect one of the screw connections to be and kicked off a test print.</td>
+                        <td>
+                            Followed this <a href="https://www.youtube.com/watch?v=MmiPFImNU4U">YouTube Tutorial</a> to parametrically design my own threads along a cylinder. It was incredibly straightforward and easy to follow. I adjusted the inputs to be similar to the size I expect one of the screw connections to be and kicked off a test print.</td>
                     </tr>
                     <tr>
                         <td>11/24</td>
-                        <td>Followed this <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> to parametrically design my own caps for the threads I created the previous day. This video walked through created the cap with a tolerance (the part that my previous test prints missed) so I was hopeful this would work. I followed the tutorial and ran a test print referencing the same inputs as the previous day to see how the two pieces would work together.</td>
+                        <td>
+                            Followed this <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> to parametrically design my own caps for the threads I created the previous day. This video walked through created the cap with a tolerance (the part that my previous test prints missed) so I was hopeful this would work. I followed the tutorial and ran a test print referencing the same inputs as the previous day to see how the two pieces would work together.</td>
                     </tr>
                     <tr>
                         <td>11/25</td>
-                        <td>With both the screw and the threaded nut printed, I tested them out together and - THEY WORKED. Now that I knew I the screw mechanism was taken care of, I turned to the next most complex (at least for me since I haven't done this before) part which is designing out the shell for the actual moss pole piece. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a>. The tutorial and resulting geometry relied on the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a>, so I had to jump through some hoops to get it installed since they only offer an installer for Windows on their site. I followed the first part of the tutorial to build the pole mesh and then added a couple of my own details and kicked off a test print.
-                        <br><br>
-                        While I waited for the test print to finish, I made my grasshopper script for the plant clips. This proved a bit trickier than I thought since a lot of my curves perfectly intersected which made trimming with regions a no-go. I tried making them overlap slightly but this effected the geometry. I decided to create one script that would allow me to parametrically create the geometry that I needed in Grasshopper that I could bake and remove the extraneous inner edges in Rhino. I then created a second script that takes the resulting curve I tidied up in Rhino and creates an array of the curve for laser cutting.</td>
+                        <td>
+                            With both the screw and the threaded nut printed, I tested them out together and - THEY WORKED. Now that I knew I the screw mechanism was taken care of, I turned to the next most complex (at least for me since I haven't done this before) part which is designing out the shell for the actual moss pole piece. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a>. The tutorial and resulting geometry relied on the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a>, so I had to jump through some hoops to get it installed since they only offer an installer for Windows on their site. I followed the first part of the tutorial to build the pole mesh and then added a couple of my own details and kicked off a test print.
+                            <br><br>
+                            While I waited for the test print to finish, I made my grasshopper script for the plant clips. This proved a bit trickier than I thought since a lot of my curves perfectly intersected which made trimming with regions a no-go. I tried making them overlap slightly but this effected the geometry. I decided to create one script that would allow me to parametrically create the geometry that I needed in Grasshopper that I could bake and remove the extraneous inner edges in Rhino. I then created a second script that takes the resulting curve I tidied up in Rhino and creates an array of the curve for laser cutting.
+                    </td>
                     </tr>
                     <tr>
                         <td>11/26</td>
-                        <td>I checked on my print in the morning and it looked really good! However, the settings I chose, the moss pole mesh cross sections were too thin, when I tried to remove the support they kept breaking. I updated the inputs in my parametric model to kick off another test print with thicker cross sections. And this is why I love parametric design - it's incredibly easy to iterate without duplicating effort.
-                        <br><br>
-                        When I came back to my test print, it looked great and I think the cross-section radius was looking better than the previous iteration, however this time around I printed with "everywhere" support rather than "tree" support (since it was difficult to remove the tree support from the last print) and it was impossible to remove. I kicked off another test print, this time with no support to see how it would fair. While that was running I started working on the anchor adapter geometry.
+                        <td>
+                            I checked on my print in the morning and it looked really good! However, the settings I chose, the moss pole mesh cross sections were too thin, when I tried to remove the support they kept breaking. I updated the inputs in my parametric model to kick off another test print with thicker cross sections. And this is why I love parametric design - it's incredibly easy to iterate without duplicating effort.
+                            <br><br>
+                            When I came back to my test print, it looked great and I think the cross-section radius was looking better than the previous iteration, however this time around I printed with "everywhere" support rather than "tree" support (since it was difficult to remove the tree support from the last print) and it was impossible to remove. I kicked off another test print, this time with no support to see how it would fair. While that was running I started working on the anchor adapter geometry.
                         </td>
                     </tr>
                     <tr>
                         <td>11/27</td>
-                        <td>My moss pole test print was finally successful. The trick was printing with no support and ensuring that there's enough U divisions so the base of the moss pole has something to connect to when printing at the top. 
-                        <br><br>
-                        Today I began integrating all of my parts. I pretty much designed each individual component but now I have to integrate the screw and thread mechanism across all of my designs. I started with the anchor base and kicked off a test print. For the diameter of my test print, I chose the bottom diameter of the pot that I plan to demo my moss pole with. 
-                        <br><br>
-                        Next, I moved onto the anchor extender since that would be using the same screw dimensions as the base, since the anchor adapter would be screwing into it. Originally I had planned to have all of my components in a single file. However, after adding the screw mechanism to the anchor file, I realized that the computations were starting to slow down my computer. So I decided to keep each component separate. This means that I'll have to be super careful to make sure all the integrating pieces use the same inputs across files. 
-                        <br><br>
-                        With the anchor extender finished, I moved onto integrating the screw mechanism into the adapter and moss pole sections. I synced the inputs across components and kicked off a bunch of low quality test prints to see how they integrated. 
+                        <td>
+                            My moss pole test print was finally successful. The trick was printing with no support and ensuring that there's enough U divisions so the base of the moss pole has something to connect to when printing at the top. 
+                            <br><br>
+                            Today I began integrating all of my parts. I pretty much designed each individual component but now I have to integrate the screw and thread mechanism across all of my designs. I started with the anchor base and kicked off a test print. For the diameter of my test print, I chose the bottom diameter of the pot that I plan to demo my moss pole with. 
+                            <br><br>
+                            Next, I moved onto the anchor extender since that would be using the same screw dimensions as the base, since the anchor adapter would be screwing into it. Originally I had planned to have all of my components in a single file. However, after adding the screw mechanism to the anchor file, I realized that the computations were starting to slow down my computer. So I decided to keep each component separate. This means that I'll have to be super careful to make sure all the integrating pieces use the same inputs across files. 
+                            <br><br>
+                            With the anchor extender finished, I moved onto integrating the screw mechanism into the adapter and moss pole sections. I synced the inputs across components and kicked off a bunch of low quality test prints to see how they integrated. 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11/28</td>
+                        <td>
+                            Today consisted of a ton of test prints! The pieces I printed the previous day looked great, but I ended up needing to rotate them. Because I had printed the screw part of each piece at the bottom, they relied on supports, which didn't create a completely even surface. This effected how tightly they were able to be screwed together. So I rotated the pieces 180 degrees to prevent this issue and re-printed all the pieces. When messing around with the finished pieces, I accidently snapped off the screw of the extended in the adapter. I realized that the infill I test printed with (20% cubic) wasn't strong enough for the small surface where the screw meets the rest of the extender. So I updated my settings to 80% triangle (since triangle is the strongest infill pattern) and had a lot more success - everything felt super stable. Lastly, I messed around a bunch with the support settings of the moss pole section, trying to find the best configuration that allowed me to easily remove the support from the inside of the pole and required the least amount of post-processing to clean up loose strands that had nothing to adhere to. I also tested all my prints at super quality today, as opposed to low quality and found that the screw mechanisms were able to close a lot more tightly, and the moss pole cross sections had less errors as well. Am feeling super good about kicking off some final prints soon - just need to fidget with the anchor base diameter to get a tighter fit in my pot. It was super rewarding to see all the pieces fit together and to be able to extend each piece.
+                            <br><br>
+                            I ended my day by stopping at the Mill with Emily to laser cut my plant clips out of acrylic. While at the Mill I found some bugs in my script that I need to tidy up - I did some quick and easy workarounds at the mill that got me unblocked but want to update the file so that it's completely parametric again. My script worked really well though. I used Grasshopper to parametrically design the clip and then baked the object into Rhino. In Rhino, I trimmed all inner edges and joined the resulting curves into one curve. I then inputted that curve back into Grasshopper to create a rectangular array of my geometry for cutting. I also found some additional opportunities to improve my script. As is, for the rectangular array, my script allows the user to input how many rectangles they want in both the x and y direction. This was super helpful, but it still required me to do some math to compute the max number I could fit on my sheet of acrylic given it's dimensions. I would like to automate this so that I can instead input the acrylic dimension, and the array will output the max number of rows and columns that fit on the sheet. I got all the laser cutting I need for the project done, but I'd love to go back and print out several more clips of varying sizes (I didn't today for lack of time) that support different plant stem sizes by the end of the year for personal use.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11/29</td>
+                        <td>
+                            <i>
+                                finish test prints
+                                <br>
+                                define two sets of measurements for printing (i.e. different pole/base diameters)
+                                <br>
+                                kick off final prints
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11/30</td>
+                        <td>
+                            <i>
+                                test print moss pole toppers (the part that I would cast to make sure it fits in the moss pole securely)
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/1</td>
+                        <td>
+                            <i>
+                                design and print 3d molds
+                                cast silicone
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/2</td>
+                        <td>
+                            <i>
+                                cast perfect cast
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/3</td>
+                        <td>
+                            <i>
+                                repotting a plant with my moss pole + taking pictures for documentation
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/3</td>
+                        <td>
+                            <i>
+                                finish and submit documentation
+                            </i>
                         </td>
                     </tr>
                 </table>
@@ -89,7 +156,7 @@
 
             <h2>Acknowledgements</h2>
             <p>
-
+                Emily Rowland for always coming in so clutch at the Mill and helping me with my laser cutting!
             </p>
 
             <p>
