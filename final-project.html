@@ -19,127 +19,326 @@
 
             <h1>Digitally Fabricated Moss Poles and Accessories</h1>
             <p>
-                <table>
-                    <tr>
-                        <th>Day</th>
-                        <th>Progress</th>
-                    </tr>
-                    <tr>
-                        <td>11/22</td>
-                        <td>
-                            Parametrically designed the anchor base of the moss pole w/o the mounting options. Waiting until I've designed and tested the screw mechanism before incorporating the mounting holes.
-                            <br><br>
-                            Tried using <a href="https://parametrichouse.com/twisted-mesh/">this tutorial</a> to create a screw mechanism. Played around with the different inputs and created an STL for a quick test print. This option desperately failed since the bottom/top of the "screw" was square and didn't allow for the screw to naturally screw into the cap I created.
-                            <br><br>
-                            Next, I tried some of the Grasshopper scripts from <a href="https://www.grasshopper3d.com/forum/topics/iso-screw-thread?x=1&id=2985220%3ATopic%3A430123&page=1#comments">this forum</a>. I chose some random inputs and baked both the male and female screws. The female screw was an open polysurface and I couldn't figure out how to manipulate it into a cap like shape. So instead I used the male shape to BooleanSplit it from a cylinder to create a cap and ran another test print. This was slightly more succesful than my first test print, but the cap didn't have any tolerance for the screw, which meant it only went in about a half turn before stopping.
-                            <br><br>
-                            To simplify my parametric modelling for each separate component, I decided to model each major piece in their own file first, and then I'll merge them together as needed. This made it easier to organize and incrementalley build on my work.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11/23</td>
-                        <td>
-                            Followed this <a href="https://www.youtube.com/watch?v=MmiPFImNU4U">YouTube Tutorial</a> to parametrically design my own threads along a cylinder. It was incredibly straightforward and easy to follow. I adjusted the inputs to be similar to the size I expect one of the screw connections to be and kicked off a test print.</td>
-                    </tr>
-                    <tr>
-                        <td>11/24</td>
-                        <td>
-                            Followed this <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> to parametrically design my own caps for the threads I created the previous day. This video walked through created the cap with a tolerance (the part that my previous test prints missed) so I was hopeful this would work. I followed the tutorial and ran a test print referencing the same inputs as the previous day to see how the two pieces would work together.</td>
-                    </tr>
-                    <tr>
-                        <td>11/25</td>
-                        <td>
-                            With both the screw and the threaded nut printed, I tested them out together and - THEY WORKED. Now that I knew I the screw mechanism was taken care of, I turned to the next most complex (at least for me since I haven't done this before) part which is designing out the shell for the actual moss pole piece. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a>. The tutorial and resulting geometry relied on the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a>, so I had to jump through some hoops to get it installed since they only offer an installer for Windows on their site. I followed the first part of the tutorial to build the pole mesh and then added a couple of my own details and kicked off a test print.
-                            <br><br>
-                            While I waited for the test print to finish, I made my grasshopper script for the plant clips. This proved a bit trickier than I thought since a lot of my curves perfectly intersected which made trimming with regions a no-go. I tried making them overlap slightly but this effected the geometry. I decided to create one script that would allow me to parametrically create the geometry that I needed in Grasshopper that I could bake and remove the extraneous inner edges in Rhino. I then created a second script that takes the resulting curve I tidied up in Rhino and creates an array of the curve for laser cutting.
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>11/26</td>
-                        <td>
-                            I checked on my print in the morning and it looked really good! However, the settings I chose, the moss pole mesh cross sections were too thin, when I tried to remove the support they kept breaking. I updated the inputs in my parametric model to kick off another test print with thicker cross sections. And this is why I love parametric design - it's incredibly easy to iterate without duplicating effort.
-                            <br><br>
-                            When I came back to my test print, it looked great and I think the cross-section radius was looking better than the previous iteration, however this time around I printed with "everywhere" support rather than "tree" support (since it was difficult to remove the tree support from the last print) and it was impossible to remove. I kicked off another test print, this time with no support to see how it would fair. While that was running I started working on the anchor adapter geometry.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11/27</td>
-                        <td>
-                            My moss pole test print was finally successful. The trick was printing with no support and ensuring that there's enough U divisions so the base of the moss pole has something to connect to when printing at the top. 
-                            <br><br>
-                            Today I began integrating all of my parts. I pretty much designed each individual component but now I have to integrate the screw and thread mechanism across all of my designs. I started with the anchor base and kicked off a test print. For the diameter of my test print, I chose the bottom diameter of the pot that I plan to demo my moss pole with. 
-                            <br><br>
-                            Next, I moved onto the anchor extender since that would be using the same screw dimensions as the base, since the anchor adapter would be screwing into it. Originally I had planned to have all of my components in a single file. However, after adding the screw mechanism to the anchor file, I realized that the computations were starting to slow down my computer. So I decided to keep each component separate. This means that I'll have to be super careful to make sure all the integrating pieces use the same inputs across files. 
-                            <br><br>
-                            With the anchor extender finished, I moved onto integrating the screw mechanism into the adapter and moss pole sections. I synced the inputs across components and kicked off a bunch of low quality test prints to see how they integrated. 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11/28</td>
-                        <td>
-                            Today consisted of a ton of test prints! The pieces I printed the previous day looked great, but I ended up needing to rotate them. Because I had printed the screw part of each piece at the bottom, they relied on supports, which didn't create a completely even surface. This effected how tightly they were able to be screwed together. So I rotated the pieces 180 degrees to prevent this issue and re-printed all the pieces. When messing around with the finished pieces, I accidently snapped off the screw of the extended in the adapter. I realized that the infill I test printed with (20% cubic) wasn't strong enough for the small surface where the screw meets the rest of the extender. So I updated my settings to 80% triangle (since triangle is the strongest infill pattern) and had a lot more success - everything felt super stable. Lastly, I messed around a bunch with the support settings of the moss pole section, trying to find the best configuration that allowed me to easily remove the support from the inside of the pole and required the least amount of post-processing to clean up loose strands that had nothing to adhere to. I also tested all my prints at super quality today, as opposed to low quality and found that the screw mechanisms were able to close a lot more tightly, and the moss pole cross sections had less errors as well. Am feeling super good about kicking off some final prints soon - just need to fidget with the anchor base diameter to get a tighter fit in my pot. It was super rewarding to see all the pieces fit together and to be able to extend each piece.
-                            <br><br>
-                            I ended my day by stopping at the Mill with Emily to laser cut my plant clips out of acrylic. While at the Mill I found some bugs in my script that I need to tidy up - I did some quick and easy workarounds at the mill that got me unblocked but want to update the file so that it's completely parametric again. My script worked really well though. I used Grasshopper to parametrically design the clip and then baked the object into Rhino. In Rhino, I trimmed all inner edges and joined the resulting curves into one curve. I then inputted that curve back into Grasshopper to create a rectangular array of my geometry for cutting. I also found some additional opportunities to improve my script. As is, for the rectangular array, my script allows the user to input how many rectangles they want in both the x and y direction. This was super helpful, but it still required me to do some math to compute the max number I could fit on my sheet of acrylic given it's dimensions. I would like to automate this so that I can instead input the acrylic dimension, and the array will output the max number of rows and columns that fit on the sheet. I got all the laser cutting I need for the project done, but I'd love to go back and print out several more clips of varying sizes (I didn't today for lack of time) that support different plant stem sizes by the end of the year for personal use.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11/29</td>
-                        <td>
-                            <i>
-                                finish test prints
-                                <br>
-                                define two sets of measurements for printing (i.e. different pole/base diameters)
-                                <br>
-                                kick off final prints
-                            </i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11/30</td>
-                        <td>
-                            <i>
-                                test print moss pole toppers (the part that I would cast to make sure it fits in the moss pole securely)
-                            </i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12/1</td>
-                        <td>
-                            <i>
-                                design and print 3d molds
-                                cast silicone
-                            </i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12/2</td>
-                        <td>
-                            <i>
-                                cast perfect cast
-                            </i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12/3</td>
-                        <td>
-                            <i>
-                                repotting a plant with my moss pole + taking pictures for documentation
-                            </i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12/3</td>
-                        <td>
-                            <i>
-                                finish and submit documentation
-                            </i>
-                        </td>
-                    </tr>
-                </table>
+                <img src="red-panda.jpg" width=33%></a>
+                <img src="red-panda.jpg" width=33%></a>
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br><br>
+
+                For my final project I designed and digitally fabricated a modular moss pole and some accessories (plant clips and decorative moss pole toppers). 
+                To complete my project, I leveraged Grasshopper, Rhino, 3D printing, laser cutting, and molding and casting. I heavily relied on Grasshopper so that my designs would be parametric - so while I only printed one 1.5in diameter moss pole, I am easily able and ready to print several other sizes that will support different plants and/or containers.
             </p>
 
+            <h2>Concept</h2>
+            <p>
+                <img src="Final-Proposal/Pictures/standard-moss-pole.jpg" height=500></a>
+                <img src="Final-Proposal/Pictures/standard-moss-pole-with-plant.jpg" height=500></a>
+                <br>
+                <i>Image source: <a href="https://www.etsy.com/listing/934939389/coco-coir-pole-two-pack-small-plant?click_key=1cdd7580f2fc4786fb2d99f836014a6fbd5e2ae6%3A934939389&click_sum=cbfb0b0c&rec_type=ss&ref=pla_similar_listing_top-1&sts=1">Etsy Listing</a></i>
+                <br><br>
 
+                Moss poles are used for various climbing houseplants. They are made of or contain various substrate for the roots of the plants to grow into and for the plant to support itself. While many different moss poles can be found in different plant stores, they all have one simple design flaw - because the poles are essentially shaped as just a rod, they do not provide any foundational support. As the moss poles get taller and taller, the plant gets heavier, or just as a result of several waterings, the moss poles eventually begin to lean and or become dislodged. 
+
+                <br><br>
+
+                While digitally fabricated moss poles do exist, many of them perpetuate this basic design flaw and do not provide a foundational base either. While I drew inspiration from other digitally fabricated moss poles, my goal for this project was to design a moss pole that is structurally supported and will not fail over time. I designed plant clips that can be used with the moss pole to easily attach a climbing plant to the pole. A stretch goal of mine was to digitally fabricate decorative toppers that can be added to the tops of the moss poles for aesthetics. Below is the original concept sketch of my design:
+                
+                <br><br>
+                <img src="Final-Proposal/Pictures/concept-sketch-front.png" height=400></a>
+                <img src="Final-Proposal/Pictures/concept-sketch-angled.png" height=400></a>
+                <br><br>
+
+                My design consists of four main components, as pictured above, all of which screw into each other.
+
+                <br><br>
+
+                <b>MODULAR MOSS POLE</b>
+                <br>
+                This is the component of the pole that will actually contain the substrate. It will not be a solid rod, but rather a perforated mesh that will hold the substrate or moss. The top of the moss pole contains a female bolt and the bottom of the moss pole has a male screw. This allows for the moss pole to be screwed into both the anchor adapter and other moss pole sections to further extend it.
+                <br><br>
+                <b>ANCHOR ADAPTER</b>
+                <br>
+                The moss pole will potentially be much wider than the anchor extender. This piece allows for the transition between widths and secures the moss pole section to the rest of the pole.
+                <br><br>
+                <b>ANCHOR EXTENDER</b>
+                <br>
+                This component can either come in various hieghts or be combined with other anchor extenders to reach the desired hieght. The anchor extenders extend the base of the anchor adapter to the top of the plant container or soil. It is thinner than the moss pole section to both save material and minimize the room the entire moss pole takes up within the pot (leaving more room for soil and dirt).
+                <br><br>
+                <b>ANCHOR BASE</b>
+                <br>
+                The base component anchors the moss pole within its container and fits within the base of the container and is held down by the contents of the pot. It contains large cut outs to allow for water drainage. It also contains two mounting options (centered and offset) to support multiple plant and container types. Depending on how this piece sits within the pot, I may need to add additional slits or stilts for better water drainage.
+                <br><br>
+
+                <br><br>
+                <img src="Final-Proposal/Pictures/acrylic-clip.png" height=400></a>
+                <br>
+                The plant clips will be a simple shape, laser cut from acylic. They are intended to push into the moss pole and hold the stem of the plant against the pole. Since these will also be designed parametrically, I intend to explore different widths to support different plant stem sizes.
+
+                
             </p>
+
+            <h1>Technical Documentation</h1>
+            <h2>Parametrically Designing the Moss Pole + 3D Printing</h2>
+            <p>
+                My modular moss pole consisted of 4 different pieces - an anchor base, extender, adapter, and moss pole section - as pictured in my concept sketches above. The pieces were all intended to be modular, such that you could trade out or append different pieces as needed to get to your desired size/height moss pole. This meant that:
+                <ul>
+                    <li>You can switch out the anchor base for different sizes, and the extender piece will always fit - no need to print different extenders for different bases</li>
+                    <li>Extender pieces can be fit together to achieve varying heights, so they can always be re-used</li>
+                    <li>Just like the base, the adapter always fits the extender - as you need smaller/bigger moss pole sections you can switch them out easily</li>
+                </ul>
+                
+                Since my design relied on connecting multiple pieces, I decided that they would be attached with a screw mechanism rather than an interference fit for added strength. This meant that every piece either required a screw or threads or both. Knowing that the screw mechanism would likely be the hardest to get right and would require a lot of testing, I designed the screw mechanism in one file, and each of the other pieces in their separate files. While I was waiting for test pritns of the screws to finish, I would work on the design of the other pieces so that when the screw mechanism was ready, I could propogate it across each file.
+
+                <br><br>
+                <h3>Screw Mechanism</h3>
+
+                    <!-- Grasshopper Script -->
+                    <img src="red-panda.jpg" width=49%></a>
+                    <!-- Model -->
+                    <img src="red-panda.jpg" width=49%></a>
+                    <br>
+                    <!-- Test Prints -->
+                    <img src="red-panda.jpg" width=49%></a>
+                    <!-- Video -->
+                    <img src="red-panda.jpg" width=49%></a>
+
+                <br><br>
+
+                The screw mechanism was definitely the trickiest part of my final project - I tried multiple tutorials and tried out many "packages" to get it right. After this <a href="https://parametrichouse.com/twisted-mesh/">this tutorial</a> failed and this <a href="https://www.grasshopper3d.com/forum/topics/iso-screw-thread?x=1&id=2985220%3ATopic%3A430123&page=1#comments">"package"</a> failed after many test prints and slight adjustments, I finally found a <a href="https://www.youtube.com/watch?v=MmiPFImNU4U">two part</a>  <a href="https://www.youtube.com/watch?v=fqa2rSGsvxQ">YouTube Tutorial</a> that walked me through how to create a screw and cap parametrically. The key to this last solution working, was that it included a tolerance for the threads such that the screw could fit in without getting stuck or jammed - and even the tolerance was parametric so that I could adjust and play with the fit.
+
+                <br><br>
+
+                The tutorials provided me with an awesome way to parametrically model screws and threads, but now I needed to find the right inputs for my particular design. This involved several test prints. I estimated how wide in diameter the different screws/threads I would need and printed various tests that varied the number of threads, the size of the thread, the height of the screw/thread that would provide enough support, how much infill was required to proviode enough strength to avoid the screw from snapping off whatever surface it was connected to. I found that 80% triangular infill for the screw component was strong enough to keep the screw from snapping off. I also found that while two threads (i.e. the number of twists) sufficed to connect the pieces, 3-4 seemed to provide a little more durability. And lastly, the diameter of the screw didn't seem to have a major effect with the higher infill (i.e. a very small and very wide screw with the same number of threads both worked great).
+
+                <br><br>
+
+                Because I found this particular mechanism so useful, and likely that I might need it in future designs, I kept an isolated version of it in its own file. The file is well annotated and the inputs are all grouped so that it is easy to use and understand the next time that I need it. 
+
+                <br><br>
+
+                Using this design, I am able to parametrically adjust the:
+                <ul>
+                    <li>Screw/Thread height</li>
+                    <li>Screw/Thread diamter</li>
+                    <li>Number of twists</li>
+                    <li>Twist size</li>
+                    <li>Twist shape</li>
+                    <li>Twist fillet</li>
+                    <li>Thread tolerance</li>
+                    <li>Thread cap thickness</li>
+                </ul>
+                
+                <br>
+
+                <h3>Anchor Base</h3>
+                <!-- Grasshopper Script -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Model -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Test Prints -->
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br>
+
+                The anchor base geometry was pretty straightforward - below is a high level overview of the process I followed:
+                <ol>
+                    <li>Draw two circles and extrude them - one larger than the other and subtract the smaller from the larger to create a tube</li>
+                    <li>Draw a cross bar and center it within the tube. Duplicate it and rotate it to create both cross sections</li>
+                    <li>Draw a circle and extrude it to half the height of the object. Use this to subtract the inner, bottom half of the object, creating a lip</li>
+                    <li>Draw a box to serve as a water draingage cutout and position it centered within one of the crossbars. Create a polar array of the box and subtract them from the object to create multiple drainage cutouts </li>
+                    <li>Draw a circle, extrude it, and position it at the top and center of the anchor base for the screw threads. Substract the cylinder from the shape</li>
+                    <li>Position the screw threads within the cutouts created in step 5</li>
+                    <li>Union all of the resulting objects</li>
+                </ol>
+
+                <br>
+
+                Using this design, I am able to parametrically adjust the:
+                <ul>
+                    <li>Anchor diameter</li>
+                    <li>Anchor height</li>
+                    <li>Anchor lip thickness (and therefore the drainage slit width since it is tied to this variable)</li>
+                    <li>Cross section width</li>
+                    <li>Number of drainage slits</li>
+                    <li>The screw/thread inputs</li>
+                </ul>
+
+                <br>
+
+                To avoid having to print with supports, I rotated this piece 180 degrees before exporting the STL. I printed my final piece at super quality, with 30% infill. Because this piece only had the thread component, I didn't need the extra infill to provide extra strength since there was nothing extruding from it that could easily snap off. 
+
+                <h3>Extender</h3>
+                <!-- Grasshopper Script -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Model -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Test Prints -->
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br><br>
+                The extender was another straightforward piece to design - it essentially consisted of a cylinder with a screw on one end and threads on the other. Below is a high-level description of my design:
+                <ol>
+                    <li>Draw the screw part of the extender</li>
+                    <li>Draw a cylinder and move it up the height of the screw</li>
+                    <li>Draw the threads for the screw and move it up the height of the screw + the height of the extender</li>
+                    <li>Union the three objects into one</li>
+                </ol>
+
+                <br>
+
+                Using this design, I am able to parametrically adjust the:
+                <ul>
+                    <li>Extender height (not including the screw since this corresponds to the "end" height once the piece has been connected to its counterpart)</li>
+                    <li>Extender diameter</li>
+                    <li>The screw/thread inputs</li>
+                </ul>
+
+                <br>
+
+                For whatever reason, (a google search told me that the geometry was likely too complicated) the union I performed in Grasshopper only unioned the bottom two pieces when I baked the object in Rhino. This was easily remedied by BooleanUnioning the resulting two pieces in Rhino. 
+
+                <br><br>
+
+                While test printing this component, I printed with both the screw facing down and the screw facing up. Both ways required supports but I found that printing with the screw facing up worked best since it left a cleaner finish, and therefore allowing a tighter fit, on the surface the screw was connected to. While the other method still worked, it required more post-processing to sand down the ridges left by the support. I printed this component at super quality with 80% triangular infill. 
+
+                <h3>Adapter</h3>
+                <!-- Grasshopper Script -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Model -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Test Prints -->
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br><br>
+                The adapter was equally straightforward to design as the previous components - it essentially consisted of a tapered cylinder combined with a cylinder (plus the screw and thread mechanism). Below is a high-level description of my design:
+                <ol>
+                    <li>Draw three circles and distribute them along the z-axis, such that the top two are the same size and the bottom one is smaller</li>
+                    <li>Create a surface from each circle</li>
+                    <li>Loft the three surfaces, being sure to specify a straight edge loft</li>
+                    <li>Draw a cylinder that is equal to the extender diameter + some tolerance and subtract it from the tapered section of the object. Position the screw intended to attach to the extender in this empty space</li>
+                    <li>Position the threads at the top of the oject</li>
+                    <li>Union the resulting objects</li>
+                </ol>
+
+                <br>
+
+                Using this design, I am able to parametrically adjust the:
+                <ul>
+                    <li>Adapter height</li>
+                    <li>Adapter top/bottom diameter</li>
+                    <li>Tolerance needed for the extender to connect to the bottom half</li>
+                    <li>The screw/thread inputs</li>
+                </ul>
+
+                <br>
+
+                Similarly to the extender, the union I performed in Grasshopper only unioned the bottom two pieces when I baked the object in Rhino. Performing a BooleanUnion in Rhino worked to quickly combine the two resulting objects into one solid.
+
+                <br><br>
+
+                While test printing this component, I took my learnings from the extender, and again printed with the screw side (the tapered end) facing up to leave a clean finish and therefore tighter connection on the side that connects to the extender. This also meant that the side that connects to the moss pole was touching the build plate, also leaving a clean and tight connection on that end as well. I printed this component at super quality with 80% triangular infill to provide strength for the screw and where it connected to the adapter. 
+
+                <h3>Moss Pole</h3>
+                <!-- Grasshopper Script -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Model -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Test Prints -->
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br><br>
+                The moss pole was the second most challenging part of my final project since I hadn't designed something like this before. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a> to learn how to create the outer "mesh" of the moss pole. To create the mesh I really just needed an object to shape the mesh around and the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a> to create the diamond structure. While I printed my design with the 'Diagrid Structure' to give my diamond like shapes, I can easily switch out that component with the 'Hexagonal Structure' component to give me hexagon shapes that give honeycomb vibes! Below is a high-level description of my overall design:
+                <ol>
+                    <li>Draw a cylinder</li>
+                    <li>Use the LunchBox Diagrid Structure tp create a mesh around the cylinder</li>
+                    <li>Pipe the resulting structure to convert it from a curve to a 3D shape</li>
+                    <li>Draw a tube and position it at the bottom of the pole. Duplicate it and move it to the top of the pole</li>
+                    <li>Position the screw at the bottom of the pole. Position the complementing threads at the top of the pole</li>
+                    <li>Use Pufferfish's Append Polysurface component to union the objects (Grasshopper's Solid Union component didn't work here since the geometry was too complex</li>
+                </ol>
+
+                <br>
+
+                Using this design, I am able to parametrically adjust the:
+                <ul>
+                    <li>Moss pole height</li>
+                    <li>Moss pole diameter</li>
+                    <li>The number of horizontal/vertical subdivisions in the outer mesh</li>
+                    <li>The radius of the mesh cross sections</li>
+                    <li>The top/bottom ring thickness</li>
+                    <li>The top/bottom ring height</li>
+                    <li>The screw/thread inputs</li>
+                </ul>
+
+                <br>
+
+                Unnlike the other pieces, this piece required <b>many</b> test prints to get right. At my test print height (two inches) I was able to get successful prints at super quality with no supports. They required some post-processing to remove some extranesous strands from the top and bottom rings but overall they looked really good. But since my final pieces (10 inches) took 12 hours to print, and because the additional height made it trickier to perform some post-processing, I wasn't willing to risk printing wihtout support for my final prints. But really the joke was on me, because with 11in tall pieces, the geometry was so complex Cura couldn't slice the object. After several attempts to reduce the mesh in Rhino I couldn't reduce it enough without ruining the screw/thread geometry. So I settled on 6in tall pieces instead since Cura seemed to be able to handle that. I still had to run several test prints here though to get my support settings right, since removing supports from the inside of a 6in tube was impossible with default support settings. I unded up using the following support settings on my final prints:
+                <br>
+                <!-- Print Settings -->
+                <img src="red-panda.jpg" width=33%></a>
+            </p>
+
+            <h2>Parametrically Designing the Plant Clips + Laser Cutting</h2>
+            <p>
+                <!-- Grasshopper Script -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Model -->
+                <img src="red-panda.jpg" width=33%></a>
+                <!-- Test Prints -->
+                <img src="red-panda.jpg" width=33%></a>
+
+                <br><br>
+
+                Designing the plant clips ended up being just slightly trickier than I had predicted since the geometry I needed didn't interesect which meant I couldn't trim my curves with other curves. But I was able to find a quick and easy workaround:
+                <ol>
+                    <li>Write one script that draws the plant clip geometry without removing the inner lines</li>
+                    <li>Bake the object in Rhino</li>
+                    <li>Trim the inner lines in Rhino and then join all the curves</li>
+                    <li>Use the resulting curve as input to a second Grasshopper script that creates an array of the final object for laser cutting</li>
+                </ol>
+                
+                This ended up working out really well and I was able to parametrically update the plant clip leg width and length, the gap between each leg, and the number of rows/columns in the array. I stopped by The Mill to cut my pieces along with one of my test prints. I used my calipers to measure the space between the moss pole mesh to decide how wide and long the legs of my plant clips should be for this particular size. I updated my inputs in Rhino, baked the curves, trimmed and joined the edges, and inputted it back into Grasshopper. I measured the size of my acrylic sheet, and calculated how many rectangles would fit for my rectangular array inputs. I baked the array, exported the file to AI, and updated the stroke weights. I sent my job to the printer and used the following settings from the cheat sheet on the wall: speed: 8, power: 100, frequency: 100. The cut went great and now I had several plant clips!
+            </p>
+
+            <h2>Designing + Casting the Moss Pole Toppers</h2>
+            <p>
+                This was one of my stretch assignments and just something fun I thought of. I found a cute mesh I like on Thingiverse and downloaded <a href="https://www.thingiverse.com/thing:4838220"></a>the files</a>. I imported it to Rhino and added a cylindrical base for it that was slightly smaller than the moss pole diameter, along with a small disk on top equal to the moss pole diameter. I realized that the imported mesh was open, so I used the <i>QuadRemesh</i> command and that ended up closing it. I unioned the objects and did a quick test print to make sure that it would fit nicely within the moss pole.
+
+                <br><br>
+                
+                From there, I began designing my molds for molds - meta. I created a surface to split the mesh in half, thinking about where I wanted the parting lines to be. I then drew two boxes that would be the bottom of my 3D printed mold that I could append each half of the mesh to. Next I added some spheres to union to one mold and difference from the other. Next, I added a cone that would be used as the pouring hole. Again, I used a surface to split the cone in half so that I would have one half for each half of the mold. I positioned the small end of the cone at the bottom of the large cylindrical surface, flush with its surface, and the large end of the cone flush with the edge of the box.
+
+                <br><br> 
+
+                Lastly, I needed to create the outer box for the mold. Since the rectangular base of the molds were 60x60, I created a box with a .1mm tolerance. This meant creating a 60.1mm x 60.1mm x 35mm box for the inner edge of the box and then creating a second 65mm x 65mm x 35mm box box for the outer edge. I used the align command to align them both horizontally and vertically and then used the BooleanDifference command to subtract the inner box from the outer box. I outputted the STLs with a .001mm tolerance and imported them to Cura. Due to time constraints I printed the 3D printed mold at standard quality due to time constraints (normally I would print at super quality).
+
+                <br><br>
+
+                With my 3D printed molds for molds ready to go, I was ready to cast my molds. I prepared my work space by laying down paper in case I spilled anything, and laying out all of my materials, including 3 cups for mixing, a popsicle stick for mixing, gloves, oomoo, and the molds. I placed the molds on a piece of cardboard so that I could easily move them after pouring the oomoo without having to pick up each one and risk making a mess.
+
+                <br><br> 
+
+                I eyeballed how much oomoo I thought I would need, and carefully poured parts A and B of the oomoo into separate cups. Once they were both poured, I poured them both into a third cup, using the popsicle stick to scrape the edges of each cup. I vigorously mixed the two parts, paying extra attention to make sure the bottom of the cup was well mixed, and the material in the crevices of the cup were being thoroughly combined as well. My arm got tired after a while and I had to tap in my partner to help me make sure everything was well combined.
+
+                <br><br> 
+
+                From there, I poured the oomoo into each mold. I poured a small, steady stream from very high up to try to reduce the amount of air bubbles that poured into the mold. This worked surprisingly well and I couldn't see any air bubbles form as I poured the silicone mixture. I evently distrubuted the silicone into each mold and set them aside over night to cure. 
+                
+                <br><br> 
+                
+                When I returned to them in the morning they were solid - SUCCESS! I pushed the molds from the top, and slowly released them from their molds. I perfomed a bit of post-processing to remove the extra material along the edges and I was ready to start casting. I used rubber bands to hold my silicone molds together. Similarly to the oomoo, I used a plastic cup and popsicle stick to mix the Perfect Cast with water. I used a large plastic syringe to pour the Perfect Cast into the mold and this worked super well since it gave me control of the pouring speed and allowed me to pour in the mixture without making a mess. I poured my first cast, waited about an hour and then removed the mold. I had a cute little Fred the Frog to sit on top of my moss pole!
+            </p>
+
+            <h2>Bill of Materials</h2>
+            <p>
+                <ul>
+                    <li>Filament</li>
+                    <li>Acrylic Sheets</li>
+                    <li>Oomoo</li>
+                    <li>Perfect Cast</li>
+                </ul>
+            </p>
+
 
             <h2>Source Files</h2>
             <p>
@@ -151,6 +350,14 @@
                     <li><a href="Final-Project/Grasshopper Scripts/AdapterWithThreads.gh"> Adapter Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/PlantClips.gh">Moss Pole Section Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts//ThreadsAndCap.gh">Screw Mechanism Script</a></li>
+                </ul>
+
+                <br>
+
+                Rhino Files
+                <ul>
+                    <li><a href="Final-Project/Rhino Files/MossPoleTopper.3dm">Moss Pole Topper Mold</a></li>
+                    <li><a href="Final-Project/Rhino Files/PlantClips.3dm">Plant Clips</a></li>
                 </ul>
             </p>
 
