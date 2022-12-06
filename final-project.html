@@ -328,23 +328,31 @@
                 While test printing this component, I took my learnings from the extender, and again printed with the screw side (the tapered end) facing up to leave a clean finish and therefore tighter connection on the side that connects to the extender. This also meant that the side that connects to the moss pole was touching the build plate, also leaving a clean and tight connection on that end as well. I printed this component at super quality with 80% triangular infill to provide strength for the screw and where it connected to the adapter. 
 
                 <h3>Moss Pole</h3>
-                <!-- Grasshopper Script -->
-                <img src="red-panda.jpg" width=49%></a>
-                <!-- Model -->
-                <img src="red-panda.jpg" width=49%></a>
-                <br>
-                <!-- Test Prints -->
-                <img src="red-panda.jpg" width=49%></a>
-                <!-- Video -->
-                <img src="red-panda.jpg" width=49%></a>
-                <!-- Grasshopper Script -->
-                <img src="Final-Project/Pictures/poles-standing.png" width=24%></a>
-                <!-- Model -->
-                <img src="Final-Project/Pictures/poles-laying-down.png" width=24%></a>
-                <!-- Video -->
-                <img src="Final-Project/Pictures/poles-connected-standing.png" width=24%></a>
-                <!-- Video -->
-                <img src="Final-Project/Pictures/poles-connected-laying-down.png" width=24%></a>
+                <div class="hoverwrap" style="width: 49%;">
+                    <img src="Final-Project/Pictures/moss-pole-grasshopper.png">
+                    <div class="hovercap">Grasshopper script used to generate parametric moss pole</div>
+                </div>
+                <div class="hoverwrap" style="width: 49%;">
+                    <img src="Final-Project/Pictures/moss-pole-rhino.png" width=100%>
+                    <div class="hovercap">Moss pole modeled in Rhino</div>
+                </div>
+
+                <div class="hoverwrap" style="width: 24%;">
+                    <img src="Final-Project/Pictures/poles-standing.png" >
+                    <div class="hovercap">3D printed moss pole section - upright</div>
+                </div>
+                <div class="hoverwrap" style="width: 24%;">
+                    <img src="Final-Project/Pictures/poles-laying-down.png" width=100%>
+                    <div class="hovercap">3D printed moss pole section - laying down</div>
+                </div>
+                <div class="hoverwrap" style="width: 24%;">
+                    <img src="Final-Project/Pictures/poles-connected-standing.png">
+                    <div class="hovercap">Moss poles connected to show modularity</div>
+                </div>
+                <div class="hoverwrap" style="width: 24%;">
+                    <img src="Final-Project/Pictures/poles-connected-laying-down.png" width=100%>
+                    <div class="hovercap">Moss poles connected (and laying down) to show modularity</div>
+                </div>
 
                 <br><br>
                 The moss pole was the second most challenging part of my final project since I hadn't designed something like this before. I followed this <a href="https://parametrichouse.com/tornado-tower/">Parametric House Tutorial</a> to learn how to create the outer "mesh" of the moss pole. To create the mesh I really just needed an object to shape the mesh around and the <a href="https://www.food4rhino.com/en/app/lunchbox">LunchBox plugin</a> to create the diamond structure. While I printed my design with the 'Diagrid Structure' to give my diamond like shapes, I can easily switch out that component with the 'Hexagonal Structure' component to give me hexagon shapes that give honeycomb vibes! Below is a high-level description of my overall design:
@@ -371,6 +379,13 @@
                 </ul>
 
                 <br>
+
+                <div class="hoverwrap" style="width: 33%;">
+                    <img src="Final-Project/Pictures/pole-test-prints.png" width=100%>
+                    <div class="hovercap">Various moss pole test prints that experimented with different structure, support, and quality settings</div>
+                </div>
+
+                <br><br>
 
                 Unnlike the other pieces, this piece required <b>many</b> test prints to get right. At my test print height (two inches) I was able to get successful prints at super quality with no supports. They required some post-processing to remove some extranesous strands from the top and bottom rings but overall they looked really good. But since my final pieces (10 inches) took 12 hours to print, and because the additional height made it trickier to perform some post-processing, I wasn't willing to risk printing wihtout support for my final prints. But really the joke was on me, because with 11in tall pieces, the geometry was so complex Cura couldn't slice the object. After several attempts to reduce the mesh in Rhino I couldn't reduce it enough without ruining the screw/thread geometry. So I settled on 6in tall pieces instead since Cura seemed to be able to handle that. I still had to run several test prints here though to get my support settings right, since removing supports from the inside of a 6in tube was impossible with default support settings. I unded up using the following support settings on my final prints:
                 <br>
@@ -466,7 +481,7 @@
                     <li><a href="Final-Project/Grasshopper Scripts//ThreadsAndCap.gh">Screw Mechanism Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/AnchorBaseWithThreads.gh">Anchor Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/ExtenderWithThreads.gh">Extender Script</a></li>
-                    <li><a href="Final-Project/Grasshopper Scripts/MossPoleWithThreadsgh.gh">Moss Pole Section Script</a></li>
+                    <li><a href="Final-Project/Grasshopper Scripts/MossPoleWithThreads.gh">Moss Pole Section Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/AdapterWithThreads.gh"> Adapter Script</a></li>
                     <li><a href="Final-Project/Grasshopper Scripts/PlantClips.gh">Moss Pole Section Script</a></li>
                 </ul>
@@ -478,6 +493,7 @@
                     <li><a href="Final-Project/Rhino Files/AnchorBaseWithThreads.3dm">Anchor Base</a></li>
                     <li><a href="Final-Project/Rhino Files/ExtenderWithThreads.3dm">Extenders</a></li>
                     <li><a href="Final-Project/Rhino Files/AdapterWithThreads.3dm">Adapter</a></li>
+                    <li><a href="Final-Project/Rhino Files/MossPoleWithThreads.3dm">Moss Pole</a></li>
                     <li><a href="Final-Project/Rhino Files/MossPoleTopper.3dm">Moss Pole Topper Mold</a></li>
                     <li><a href="Final-Project/Rhino Files/PlantClips.3dm">Plant Clips</a></li>
                 </ul>
